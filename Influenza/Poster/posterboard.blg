@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: posterboard.aux
+The style file: unsrt.bst
+Database file #1: sample.bib
+Warning--entry type for "Disease-Control:2013aa" isn't style-file defined
+--line 23 of file sample.bib
+Warning--entry type for "CDC:2016aa" isn't style-file defined
+--line 43 of file sample.bib
+You've used 5 entries,
+            1791 wiz_defined-function locations,
+            473 strings with 4235 characters,
+and the built_in function-call counts, 832 in all, are:
+= -- 66
+> -- 27
+< -- 2
++ -- 12
+- -- 7
+* -- 37
+:= -- 135
+add.period$ -- 13
+call.type$ -- 5
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 44
+empty$ -- 93
+format.name$ -- 7
+if$ -- 192
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 3
+newline$ -- 26
+num.names$ -- 5
+pop$ -- 22
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 26
+stack$ -- 0
+substring$ -- 14
+swap$ -- 13
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 8
+width$ -- 6
+write$ -- 51
+(There were 2 warnings)

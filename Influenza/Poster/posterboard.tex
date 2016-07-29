@@ -1,0 +1,336 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Landscape Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0, landscape, final]{a0poster}
+
+\usepackage{multicol} 			% This is so we can have multiple columns of text side-by-side
+\columnsep=100pt 				% This is the amount of white space between the columns in the poster
+\columnseprule=0pt 				% This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames,dvipsnames]{xcolor} 	% Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+\usepackage{helvet}             				% Load Helvetica font & CM math
+\usepackage{color}              				% Needed for colour boxes & coloured text
+\usepackage{background}					% Gives colored background
+\usepackage[letterspace=55]{microtype}		% Increase the spacing between "fl" in the title "Influenza"
+
+\usepackage{verbatim}		
+\usepackage{caption}																% Needed to caption figures without a figure environment
+\usepackage[framemethod=TikZ]{mdframed}												% Needed for boxes around sections
+\usepackage{float}
+\usepackage{graphicx} 																% Required for including images
+\graphicspath{{"/Users/hgducharme/Documents/School/Projects/Calculus II Honors/MATLAB Figures/"}} 	% Location of the graphics files
+\usepackage{booktabs}			 													% Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} 												% Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} 										% For math fonts, symbols and environments
+\usepackage{wrapfig} 																% Allows wrapping text around tables and figures
+\usepackage{tikz}																	% Used for colored title banner
+
+
+\backgroundsetup{
+	scale=1.1,
+	angle=0,
+	opacity=1,
+	contents={\begin{tikzpicture}[remember picture,overlay]
+		\path [top color = gray!10, middle color = gray!20, bottom color = gray!35] (current page.south west)rectangle (current page.north east);   % Adjust the position of the logo.
+	\end{tikzpicture}}
+}
+
+%%% Package for Code %%%
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=MATLAB,
+  aboveskip=5mm,
+  belowskip=10mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%%% End Package for Code %%%
+
+%%% Definition Box Configuration %%%
+\mdfdefinestyle{theoremstyle}{%
+	linecolor=black,linewidth=2pt,%%
+	leftline=false, rightline=false, bottomline=false,%
+	backgroundcolor = none,%
+	frametitlerule=true,%
+	frametitlebackgroundcolor=BrickRed,%
+	innertopmargin=45pt,
+}
+\mdtheorem[style=theoremstyle]{definition}{:}
+%%% End Definition Box Configuration %%%
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into three boxes:
+% The first is 55% wide and houses the title, subtitle, names and university/organization
+% The second is 25% wide and houses contact information
+% The third is 19% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+
+\begin{minipage}[b]{0.80\linewidth}
+\begin{center}
+\VeryHuge \color{BrickRed} \textbf{Approximating In\textls{fl}uenza Dynamics} \color{Black}\\% Title
+\vspace{0.5em}
+\huge \textbf{Hunter Ducharme and Aran Bercu}\\ % Author(s)
+\huge Lone Star College-CyFair\\ % University/organization
+\end{center}
+\vspace{4.1em}
+\end{minipage}
+%
+\begin{comment}
+\begin{minipage}[b]{0.25\linewidth}
+\color{DarkSlateGray}\Large \textbf{Contact Information:}\\
+Lone Star College-CyFair \\
+9191 Barker Cypress Rd. \\ 
+Cypress, TX 77433 \\\\
+Phone: (281) 450-7154\\
+Email: hgducharme@gmail.com\\
+\end{minipage}
+\end{comment}
+%
+\begin{minipage}[b]{0.19\linewidth}
+\begin{flushright}
+	\includegraphics[width=20cm]{"/Users/hgducharme/Documents/School/Projects/Calculus II Honors/Poster Board/figures/lonestar"} 
+\end{flushright}
+\end{minipage}
+
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
+
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{4}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\color{DarkSlateGrey}
+
+\section*{Abstract}
+%\begin{abstract}
+
+Mathematical epidemiology is the application of mathematics to modeling the spread of infectious diseases. The most fundamental epidemiology compartment model is the SI (susceptible-infectious) model which breaks a population into two health states---those susceptible to being infected and those who are infectious. Using weekly data published by the Center for Disease Control (CDC), an SI compartment model $I(t)$ was created in an attempt to predict the dynamics of seasonal type A influenza in the United States, a disease usually approached with an SIR (susceptible-infectious-recovered) compartment model. A derivative of the SI function was found $I^\prime(t)$ in order to produce a curve identical to that of an SIR infection curve. The parameter values for $I^\prime(t)$ were found using computational techniques and the CDC 2014-2015 data, which resulted in a theoretical SIR function $I^\prime(t)$ that very accurately estimates the annual infection curve for type A influenza for the years 2012 through 2015. This finding suggests there may be possible applications for an SI compartment model in estimating the dynamics of more complex infectious diseases.
+
+%\end{abstract}
+
+\bigskip
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\begin{definition*}[\textcolor{white}{Introduction}]
+\color{Black}
+
+\begin{enumerate}
+	\item{\textcolor{BrickRed}{\textbf{Mathematical Epidemiology:}} The study of infectious diseases and how they spread throughout a population.} 
+	\item{\textcolor{BrickRed}{\textbf{Compartment Models in Epidemiology: }} A mathematical framework for describing and modeling the spread of a disease. These compartment models are usually done through a system of differential equations.}
+	\item{\textcolor{BrickRed}{\textbf{Different Kinds of Models:}} SI (susceptible-infectious), SIS (susceptible-infectious-susceptible), SIR (susceptible-infectious-recovered), and SEIR (susceptible-exposed-infectious-recovered) \cite{Chitnis:2011aa}. }
+	\item{\textcolor{BrickRed}{\textbf{Selecting the Right Model:}} Depending on the disease in focus, there is generally one compartment model that most accurately approximates the dynamics of the disease. More complex diseases = more complex of a compartment model.}
+\end{enumerate}
+
+\end{definition*}
+
+\vspace{1.5em}
+
+\begin{minipage}[b]{\linewidth}
+\begin{center}
+\begin{minipage}[b]{0.75\linewidth}
+\Large \textbf{Contact Information:}\\
+Lone Star College-CyFair \\
+9191 Barker Cypress Rd. \\ 
+Cypress, TX 77433 \\\\
+%Phone: (281) 450-7154\\
+Email: hgducharme@gmail.com
+\end{minipage}
+\end{center}
+\end{minipage}
+
+
+\vfill
+\columnbreak
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+
+\color{Black} % DarkSlateGray color for the rest of the content
+
+%\section*{Materials and Methods}
+
+%\begin{definition*}[Endemic Model]
+%\subsection*{Endemic Model}
+\begin{definition*}[\textcolor{white}{Endemic Model}]
+\begin{figure}[H]
+	\begin{center}
+	\begin{center}
+	\includegraphics[width=12cm]{SI}
+	\caption{Susceptible-Infectious model.}
+	\end{center}
+	\end{center}
+\end{figure} 
+
+The SI model divides the total population $N$ into two health states: susceptible $S$ and infectious $I$. The rate at which susceptible individuals become infected is the number of contacts per unit of time $r$, multiplied by the probability a contact will become infected by the disease $\beta$ \cite{Chitnis:2011aa}. The fractional population that is infected is: $I/N$ \cite{Chitnis:2011aa}. This model assumes infectious hosts stay infected for the rest of their lives and no deaths occur during the influenza season.
+
+\begin{subequations}
+\begin{align}
+\frac{dS}{dt} &= -r \beta(N-I)\frac{I}{N} \\
+\frac{dI}{dt}  &=  r \beta S \frac{I}{N}
+\end{align}
+\end{subequations}
+
+\begin{align}
+\frac{dI}{dt} = r \beta (N-I) \frac{I}{N}.
+\end{align}
+
+\begin{align}
+I(t) = \frac{I_0N}{(N-I)e^{-r \beta t} + I_0}
+\end{align}
+\end{definition*}
+
+%\subsection*{Data}
+\begin{definition*}[\textcolor{white}{Data}]
+\begin{center}
+\includegraphics[width=\linewidth]{CDC_data}
+\captionof{figure}{
+			A number of infections vs. time plot for each influenza season through the years 2012-2015.
+			Top graph: Influenza season 2014-2015.
+			Middle graph: Influenza season 2013-2014.
+			Bottom graph: Influenza season 2012-2013.
+			Note: All data only includes infections from type A virus strains. }
+\end{center}
+\end{definition*}
+
+\vfill
+\columnbreak
+
+%\subsection*{Determining Parameters}
+\begin{definition*}[\textcolor{white}{Determining Parameters}]
+
+We found that the values for $r$ and $\beta$ were approximately 1.5912 and 0.2749 respectively. More accurately, the coefficient value of $t$ in equation $(3)$ should be approximately 0.4374. \\
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+%% Integrate SIR function for 2015 Influenza.
+x_data = 1:52;
+si15 = integrate(curve_fits{3}, x_data, 0);
+
+%% Fit theoretical SIR to CDC SIR.
+[xData, yData] = prepareCurveData( x_data, si15 );
+
+% Set up fittype and options.
+ft2 = fittype( '(106500*197)/((106500-197)*exp(-r*b*t)+197);', 'independent', 't', 'dependent', 'I' );
+opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
+opts.Display = 'Off';
+opts.StartPoint = [6 0.4];
+
+% Fit model to data.
+[si15_approx, si15_approx_gof] = fit( xData, yData, ft2, opts );
+
+% Display coefficient values.
+r = si15_approx.r;
+b = si15_approx.b;
+\end{lstlisting}
+\end{minipage}
+
+\end{definition*}
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+
+%\section*{Results}
+\begin{definition*}[\textcolor{white}{Results}]
+\begin{align}
+ I^{\prime}(t) = \frac{dI}{dt} = \frac{ NI_0(N-I_0)r \beta e^{-r\beta t} }{ \left( (N-I_0)e^{-r\beta t} + I_0 \right)^2 }.
+\end{align}
+%
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{normalized}
+\caption{Top left corner: a normalized theoretical SI function plotted against the CDC data curve for the 2012-2013 influenza season. 
+		Top right corner: normalized theoretical SI function plotted against the CDC data curve for the 2013-2014 influenza season.
+		Lower half: a normalized theoretical SI function plotted against the CDC data curve for the 2014-2015 influenza season. }
+\label{default}
+\end{center}
+\end{figure}
+%
+\end{definition*}
+
+\vfill
+\columnbreak
+
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSIONS
+%----------------------------------------------------------------------------------------
+
+%\section*{Conclusions}
+\begin{definition*}[\textcolor{white}{Conclusions and Future Research}]
+%\color{Black}
+ 
+\begin{enumerate}
+\item{\textcolor{BrickRed}{\textbf{Our findings suggest}} there exists more applications of an SI model than simply modeling a disease with only a susceptible and infectious group. }
+\item{\textcolor{BrickRed}{\textbf{Equation $(4)$ is a very good approximation}} of the CDC infection curves from the past three years of seasonal type A influenza data. This statement is shown by the results in figure 3. }
+\item{\textcolor{BrickRed}{\textbf{As the United States enters the 2015-2016 influenza season}}, we predict our theoretical SIR model should offer a reliable estimation for the number of type A influenza infections given the initial amount of infected people at time zero $I_0$ and the total population size $N$. } 
+\item{\textcolor{BrickRed}{\textbf{A note regarding the "reproduction number" of influenza:}}}
+\begin{itemize}
+	\item{Our team attempted to find the parameter values for $r$ and $\beta$ by using what is known as the "reproduction number." The reproduction number $R_0$ of a disease is the total number of secondary cases a single infectious host will produce \cite{Chitnis:2011ab}. }
+	\item{Mathematically, $R_0 = (r\beta)(T)$ where $T$ is the length of time a host remains infected. Using the CDC's estimate of eight days for $T$ \cite{Disease-Control:2013aa}, and influenza's average reproduction number of 1.28 \cite{Chowell:2007aa}, we solved for the product of $r$ and $\beta$. }
+	\item{This did not produce a reliable and accurate result, and the error can be attributed to the reproduction number not having been adjusted for an SI model.  Further evaluation should be performed to determine how the parameter values can adjusted in order to fit the compartment model being used.}
+	\end{itemize}
+\item{\textcolor{BrickRed}{\textbf{Further research should be performed}} to revise the model as influenza continuously evolves over time. In addition, the limitations of an SI model are not quite clear from our findings in regards to approximating diseases with multiple health states and should be further studied. }
+\end{enumerate}
+\end{definition*}
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\color{DarkSlateGrey}
+
+\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+\bibliographystyle{unsrt} % Plain referencing style
+\bibliography{sample} % Use the example bibliography file sample.bib
+
+
+%----------------------------------------------------------------------------------------
+
+\end{multicols}
+\end{document}
