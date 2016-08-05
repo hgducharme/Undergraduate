@@ -1,3 +1,4 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Jacobs Landscape Poster
 % LaTeX Template
@@ -27,10 +28,21 @@
 \usepackage[scale=1.24]{beamerposter} 					% Use the beamerposter package for laying out the poster
 \usetheme{confposter} 								% Use the confposter theme supplied with this template
 
-\setbeamercolor{block title}{fg=ngreen,bg=white} 			% Colors of the block titles
-\setbeamercolor{block body}{fg=black,bg=white} 			% Colors of the body of blocks
+\setbeamercolor{block title}{fg=ngreen,bg=} 				% Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=} 				% Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=dblue!70}		% Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=dblue!10}	% Colors of the body of highlighted blocks
+\setbeamercolor{item}{fg=ngreen}						% Colors for itemize items
+\setbeamercolor{item projected}{fg=white,bg=ngreen}		% Colors for enumerate items
+\setbeamercolor{titlelike}{bg=green,fg=green}				% Color for title
+\setbeamertemplate{items}[circle]						% Shape of enumerate 
+
+\setbeamertemplate{background}{
+\begin{tikzpicture}[remember picture,overlay]
+		\path [top color = gray!10, middle color = gray!20, bottom color = gray!35] (current page.south west)rectangle (current page.north east);   % Adjust the position of the logo.
+\end{tikzpicture}
+}
+
 % Many more colors are available for use in beamerthemeconfposter.sty
 
 %-----------------------------------------------------------
@@ -55,54 +67,81 @@
 %-----------------------------------------------------------
 
 \usepackage{graphicx}  											% Required for including images
-\graphicspath{{"/Users/hgducharme/Documents/REU/reu_poster/figures/"}}	% Location of the graphics files
+\usepackage{subfig}												% Required for formatting images close together.
+\graphicspath{{"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"}}	% Location of the graphics files.
 \usepackage{booktabs} 											% Top and bottom rules for table
+\usepackage{verbatim}											% Used for multi-line comments
+\usepackage[scaled=0.90]{helvet}									% Change font to Helvetica
+\setbeamerfont{title}{family*=DejaVuSans}
+\usefonttheme{professionalfonts}
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 
-\title{Study of Asphaltene Deposition from Destabilized Oils with Water
-Emulsions Using Porous Microfluidics Chip} 					% Poster title
+\title{Asphaltene Deposition from Destabilized Oils with Water Emulsions Using Porous Microfluidics Chip} % Poster title
 
-\author{Hunter Ducharme$^1$, Peng He$^2$, Yu-Jiun ?Nate? Lin$^2$, Sibana Lisa Biswal$^2$} % Author(s)
+\author{Hunter Ducharme$^1$, Peng He$^2$, Yu-Jiun ``Nate'' Lin$^2$, Sibana Lisa Biswal$^2$} % Author(s)
 
 \institute{$^1$ Rice Office of STEM Engagement, Rice University \\ 
 	      $^2$ Chemical and Bimolecular Engineering, Rice University} % Institution(s)
 
 %----------------------------------------------------------------------------------------
 
+\begin{comment}
+% Allows for pictures on left and right side of title by introducing three columns, instead of just one for the title
+\setbeamertemplate{headline}{
+ \leavevmode
+  \begin{columns}
+   \begin{column}{.2\linewidth}
+    \includegraphics[width=\linewidth]{logo.png}
+   \end{column}
+   \begin{column}{.6\linewidth}
+    \vskip1cm
+    \centering
+    \usebeamercolor{title in headline}{\color{jblue}\Huge{\textbf{\inserttitle}}\\[0.5ex]}
+    \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
+    \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+    \vskip1cm
+   \end{column}
+   \begin{column}{.2\linewidth}
+    \includegraphics[width=\linewidth]{logo.png}
+   \end{column}
+   \vspace{1cm}
+  \end{columns}
+ \vspace{0.5in}
+ \hspace{0.5in}\begin{beamercolorbox}[wd=47in,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+ \vspace{0.1in}
+}
+\end{comment}
+
+%----------------------------------------------------------------------------------------
+
 \begin{document}
 
-\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} 		 % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
 
-\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength{\belowcaptionskip}{2ex}	  % White space under figures
 \setlength\belowdisplayshortskip{2ex} % White space under equations
 
-\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+\begin{frame}[t, fragile] % The whole poster is enclosed in one beamer frame
 
 \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The first column
+\begin{column}{\onecolwid} 		 % The first column
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
-\begin{alertblock}{Objectives}
-
-Lorem ipsum dolor sit amet, consectetur, nunc tellus pulvinar tortor, commodo eleifend risus arcu sed odio:
-\begin{itemize}
-\item Mollis dignissim, magna augue tincidunt dolor, interdum vestibulum urna
-\item Sed aliquet luctus lectus, eget aliquet leo ullamcorper consequat. Vivamus eros sem, iaculis ut euismod non, sollicitudin vel orci.
-\item Nascetur ridiculus mus.  
-\item Euismod non erat. Nam ultricies pellentesque nunc, ultrices volutpat nisl ultrices a.
-\end{itemize}
-
+\begin{comment}
+\begin{alertblock}{Objective}
+To understand the effects of various salts on ashplatene deposition relating to water-in-oil emulsions.
 \end{alertblock}
+\end{comment}
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -110,50 +149,73 @@ Lorem ipsum dolor sit amet, consectetur, nunc tellus pulvinar tortor, commodo el
 
 \begin{block}{Introduction}
 
+\begin{itemize}
+\item{\textcolor{ngreen}{\textbf{Asphaltenes}} are naturally found inside of crude oil that precipitate in the presence of a solvent, a change in pressure, and/or a change in temperature \cite{Kamran-Akbarzadeh:2007aa}.}
+\item{\textcolor{ngreen}{\textbf{The problem is}} water emulsions increase the deposition of asphaltenes inside of flow lines and reservoir rocks \cite{Goual:2012aa}.}
+\item{\textcolor{ngreen}{\textbf{The objective is}} to understand the effects of various salts on ashplatene deposition relating to water-in-oil emulsions.}
+\end{itemize}
+
+\end{block}
+
+%---------------------------------------------------------------------
+
+\begin{figure}
+\fbox{\includegraphics[width=0.45\linewidth]{clogged_pipe.png}}
+\caption{Deposition of asphaltenes inside of a pipe. Andrews, A. (2006, September/October). [Clogged pipe]. Retrieved August, 2016.}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Materials and Methods}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{materials.png}
+\caption{Experimental setup. Courtesy of Yu-Jiun ``Nate'' Lin.}
+\end{figure}
+
 \begin{enumerate}
-\item{\textcolor{dblue!70}{\textbf{What are asphaltenes?}} The study of infectious diseases and how they spread throughout a population.} 
-	\item{\textcolor{dblue!70}{\textbf{What is the problem?}} A mathematical framework for describing and modeling the spread of a disease. These compartment models are usually done through a system of differential equations.}
-	\item{\textcolor{dblue!70}{\textbf{Why is this important?}} A mathematical framework for describing and modeling the spread of a disease. These compartment models are usually done through a system of differential equations.}
+\item All materials are set up according to Figure 2.
+\item Heptane and crude oil are pumped into the microfluidic device.
+\item The pressure is recorded using a transducer.
+\item Asphaltene deposition is recorded and measured using high speed optical microscopy.
 \end{enumerate}
 
 \end{block}
 
 %---------------------------------------------------------------------
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{placeholder.jpg}
-\caption{Figure caption}
-\end{figure}
-%---------------------------------------------------------------------
 
 \end{column}						% End of the first column
+
 \begin{column}{\sepwid}\end{column}	% Empty spacer column
 \begin{column}{\twocolwid}			% Begin a column which is two columns wide (column 2)
 \begin{columns}[t,totalwidth=\twocolwid]	% Split up the two columns wide column
 \begin{column}{\onecolwid}\vspace{-.6in}	% The first column within column 2 (column 2.1)
 
 %----------------------------------------------------------------------------------------
-%	MATERIALS
+%	WATER'S IMPACT
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Materials}
+\begin{block}{Water's Impact on Deposition}
 
-The following materials were required to complete the research:
+Increasing the presence of water in crude oil positively correlates with asphaltene deposition and the aggregation of emulsions.
 
-\begin{itemize}
-\item Curabitur pellentesque dignissim
-\item Eu facilisis est tempus quis
-\item Duis porta consequat lorem
-\item Eu facilisis est tempus quis
-\end{itemize}
+\vspace{1em}
 
-The materials were prepared according to the steps outlined below:
+\begin{figure}[!tbp]
+  \centering
+  \subfloat{\includegraphics[width=0.49\textwidth]{05wt.png}}
+  \hfill
+  \subfloat{\includegraphics[width=0.49\textwidth]{10wt.png}} \\
+  
+  \subfloat{\includegraphics[width=0.49\textwidth]{4wt.png}}
+  \hfill
+  \subfloat{\includegraphics[width=0.49\textwidth]{20wt.png}}
+  \caption{Asphaltene deposition inside the porous media with varying water concentrations. Courtesy of Yu-Jiun ``Nate'' Lin.}
+\end{figure}
 
-\begin{enumerate}
-\item Curabitur pellentesque dignissim
-\item Eu facilisis est tempus quis
-\item Duis porta consequat lorem
-\item Curabitur pellentesque dignissim
-\end{enumerate}
+\vspace{0.5em}
 
 \end{block}
 
@@ -164,111 +226,38 @@ The materials were prepared according to the steps outlined below:
 \begin{column}{\onecolwid}\vspace{-.6in} % The second column within column 2 (column 2.2)
 
 %----------------------------------------------------------------------------------------
-%	METHODS
+%	SALT'S EFFECT
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Methods}
-
-Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed laoreet accumsan mattis. Integer sapien tellus, auctor ac blandit eget, sollicitudin vitae lorem. Praesent dictum tempor pulvinar. Suspendisse potenti. Sed tincidunt varius ipsum, et porta nulla suscipit et. Etiam congue bibendum felis, ac dictum augue cursus a. \textbf{Donec} magna eros, iaculis sit amet placerat quis, laoreet id est. In ut orci purus, interdum ornare nibh. Pellentesque pulvinar, nibh ac malesuada accumsan, urna nunc convallis tortor, ac vehicula nulla tellus eget nulla. Nullam lectus tortor, \textit{consequat tempor hendrerit} quis, vestibulum in diam. Maecenas sed diam augue.
-
-\end{block}
-
-%----------------------------------------------------------------------------------------
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
-
-%----------------------------------------------------------------------------------------
-%	IMPORTANT RESULT
-%----------------------------------------------------------------------------------------
-
-\begin{alertblock}{Important Result}
-
-Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo molestie porta. Sed ultrices scelerisque sapien ac commodo. Donec ut volutpat elit.
-
-\end{alertblock} 
-
-%----------------------------------------------------------------------------------------
-
-\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
-
-\begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
-
-%----------------------------------------------------------------------------------------
-%	MATHEMATICAL SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{block}{Mathematical Section}
-
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-  
-\begin{equation}
-E = mc^{2}
-\label{eqn:Einstein}
-\end{equation}
-
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-
-\begin{equation}
-\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
-\label{eq:refname}
-\end{equation}
-
-Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin. Nam quis odio enim, in molestie libero. Vivamus cursus mi at nulla elementum sollicitudin.
-
-\begin{equation}
-\kappa =\frac{\xi}{E_{\mathrm{max}}} %\mathbb{ZNR}
-\end{equation}
-
-\end{block}
-
-%----------------------------------------------------------------------------------------
-
-\end{column} % End of column 2.1
-
-\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
-
-%----------------------------------------------------------------------------------------
-%	RESULTS
-%----------------------------------------------------------------------------------------
-
-\begin{block}{Results}
+\begin{block}{Salt's Impact on Deposition}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{placeholder.jpg}
-\caption{Figure caption}
+\includegraphics[width=0.8\linewidth]{salts.png}
+\caption{Asphaltene deposition inside the porous media with 2\% of volume being water in addition to varying concentrations of sodium. Courtesy of Yu-Jiun ``Nate'' Lin.}
 \end{figure}
 
 Nunc tempus venenatis facilisis. Curabitur suscipit consequat eros non porttitor. Sed a massa dolor, id ornare enim:
 
-\begin{table}
-\vspace{2ex}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{2wt_salts.png}
+\caption{Experimental setup. Courtesy of Yu-Jiun ``Nate'' Lin.}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{10wt_salts.png}
+\caption{Experimental setup. Courtesy of Yu-Jiun ``Nate'' Lin.}
+\end{figure}
 
 \end{block}
 
 %----------------------------------------------------------------------------------------
 
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
+\end{column}	% End of column 2.2
+\end{columns}	% End of the split of column 2 - any content after this will now take up 2 columns width
+\end{column}	% End of the second column
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The third column
+\begin{column}{\onecolwid} 		 % The third column
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSION
@@ -276,10 +265,15 @@ Treatment 3 & 0.0009271 & 0.296 \\
 
 \begin{block}{Conclusion}
 
-Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non porttitor. Sed a massa dolor, id ornare enim. Fusce quis massa dictum tortor \textbf{tincidunt mattis}. Donec quam est, lobortis quis pretium at, laoreet scelerisque lacus. Nam quis odio enim, in molestie libero. Vivamus cursus mi at \textit{nulla elementum sollicitudin}.
+\begin{itemize}
+\item Nunc tempus venenatis facilisis. 
+\item \textbf{Curabitur suscipit} consequat eros non porttitor. 
+\item Sed a massa dolor, id ornare enim. 
+\end{itemize}
 
 \end{block}
 
+\begin{comment}
 %----------------------------------------------------------------------------------------
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------
@@ -294,6 +288,7 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 \end{itemize}
 
 \end{block}
+\end{comment}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCES
@@ -303,19 +298,7 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 
 \nocite{*} % Insert publications even if they are not cited in the poster
 \small{\bibliographystyle{unsrt}
-\bibliography{sample}\vspace{0.75in}}
-
-\end{block}
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS
-%----------------------------------------------------------------------------------------
-
-\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
-
-\begin{block}{Acknowledgements}
-
-\small{\rmfamily{Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.}} \\
+\bibliography{sample}}
 
 \end{block}
 
@@ -323,18 +306,17 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 %	CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+% \setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+% \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
-\begin{alertblock}{Contact Information}
+\begin{block}{Contact Information}
 
 \begin{itemize}
-\item Web: \href{http://www.university.edu/smithlab}{http://www.university.edu/smithlab}
-\item Email: \href{mailto:john@smith.com}{john@smith.com}
-\item Phone: +1 (000) 111 1111
+\item Email: hgducharme@gmail.com
+\item Phone: 281-450-7154
 \end{itemize}
 
-\end{alertblock}
+\end{block}
 
 \begin{center}
 \begin{tabular}{ccc}
@@ -348,6 +330,5 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 
 \end{columns} % End of all the columns in the poster
 
-\end{frame} % End of the enclosing frame
-
+\end{frame}
 \end{document}
