@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 AUG 2016 10:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 AUG 2016 22:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1113,56 +1113,130 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks48
 \verbatim@in@stream=\read2
 )
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/helvet.sty
-Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
-)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/cmbright.sty
+Package: cmbright 2005/04/13 v8.1 (WaS)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> OT1/cmbr/m/n on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/lmm/m/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/lmm/b/it --> OML/cmbrm/m/it on input line 30.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmbrm/m/it --> OML/cmbrm/b/it on input line 31.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> OMS/cmbrs/m/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/lmr/bx/it --> OT1/cmbr/m/sl on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/lmr/bx/n --> OT1/cmbr/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> OT1/cmtl/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \alpha on input line 37.
+LaTeX Font Info:    Redeclaring math symbol \beta on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \gamma on input line 39.
+LaTeX Font Info:    Redeclaring math symbol \delta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \zeta on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \eta on input line 43.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 44.
+LaTeX Font Info:    Redeclaring math symbol \iota on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \kappa on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \lambda on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \mu on input line 48.
+LaTeX Font Info:    Redeclaring math symbol \nu on input line 49.
+LaTeX Font Info:    Redeclaring math symbol \xi on input line 50.
+LaTeX Font Info:    Redeclaring math symbol \pi on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \sigma on input line 53.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 55.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \psi on input line 58.
+LaTeX Font Info:    Redeclaring math symbol \omega on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \varpi on input line 62.
+LaTeX Font Info:    Redeclaring math symbol \varrho on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 64.
+LaTeX Font Info:    Redeclaring math symbol \varphi on input line 65.
+LaTeX Info: Redefining \LaTeX on input line 129.
+LaTeX Info: Redefining \LaTeXe on input line 139.
+
+
+LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <37.03> not available
+(Font)              size <35.83> substituted on input line 144.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 85.
+(hyperref)                removing `superscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 85.
+(hyperref)                removing `superscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 85.
+(hyperref)                removing `superscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 85.
+(hyperref)                removing `superscript' on input line 87.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 85.
+(hyperref)                removing `math shift' on input line 87.
 
 (./reu_poster.aux)
 \openout1 = `reu_poster.aux'.
@@ -1188,13 +1262,11 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 121.
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 121.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
-File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
-)
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 33.32677pt on input line 121.
+LaTeX Font Info:    Try loading font information for T1+cmbr on input line 121.
 
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/t1cmbr.fd
+File: t1cmbr.fd 2005/04/13 v8.1 (WaS)
+)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1322,34 +1394,34 @@ See the caption package documentation for explanation.
 
 Package caption Info: End \AtBeginDocument code.
 (./reu_poster.nav)
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 16.07388pt on input line 121.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 82.91643pt on input line 121.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <92.13> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 121.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 82.91643pt on input line 121.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 47.98767pt on input line 121.
-LaTeX Font Info:    Calculating math sizes for size <53.32> on input line 121.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 121.
-
- (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 121.
-
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 121
+LaTeX Font Info:    Calculating math sizes for size <17.86> on input line 121.
+LaTeX Font Info:    Try loading font information for OT1+cmbr on input line 121
 .
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/ot1cmbr.fd
+File: ot1cmbr.fd 2005/04/13 v8.1 (WaS)
 )
+LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 12
+1.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
+File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Try loading font information for OMS+cmbrs on input line 12
+1.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/omscmbrs.fd
+File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
+)
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.86> not available
+(Font)              size <17.28> substituted on input line 121.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.50194> not available
+(Font)              size <12> substituted on input line 121.
+
+LaTeX Font Info:    Calculating math sizes for size <53.32> on input line 121.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <53.32> not available
 (Font)              size <24.88> substituted on input line 121.
@@ -1362,8 +1434,6 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.32384> not available
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <26.66> not available
 (Font)              size <24.88> substituted on input line 121.
 
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 39.98671pt on input line 121.
 LaTeX Font Info:    Calculating math sizes for size <44.43> on input line 121.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <44.43> not available
@@ -1377,34 +1447,17 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <31.10085> not available
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22.215> not available
 (Font)              size <20.74> substituted on input line 121.
 
-LaTeX Font Info:    Calculating math sizes for size <17.86> on input line 121.
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <17.86> not available
-(Font)              size <17.28> substituted on input line 121.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <12.50194> not available
-(Font)              size <12> substituted on input line 121.
-
 \openout4 = `reu_poster.vrb'.
 
 (./reu_poster.vrb
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 21.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 27.76482pt on input line 24.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 24.
+LaTeX Font Info:    Try loading font information for TS1+cmbr on input line 24.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1phv.fd
-File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-)
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 27.76482pt on input line 24.
 
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
+)
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"clogged_p
-ipe.png, id=17, 162.3666pt x 121.4136pt>
+ipe.png, id=15, 162.3666pt x 121.4136pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"clog
 ged_pipe.png Graphic file (type png)
 
@@ -1415,7 +1468,7 @@ oster/Figures/"clogged_pipe.png used on input line 34.
 (pdftex.def)             Requested size: 343.4266pt x 256.83981pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"materials
-.png, id=19, 363.3575pt x 193.72375pt>
+.png, id=18, 363.3575pt x 193.72375pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"mate
 rials.png Graphic file (type png)
 
@@ -1424,8 +1477,6 @@ ials.png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
 oster/Figures/"materials.png used on input line 45.
 (pdftex.def)             Requested size: 686.85323pt x 366.23735pt.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 19.28685pt on input line 50.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"05wt.png,
  id=20, 380.42125pt x 199.74625pt>
@@ -1435,30 +1486,30 @@ File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"05wt
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"05wt.
 png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"05wt.png used on input line 79.
-(pdftex.def)             Requested size: 373.96014pt x 196.35956pt.
-
-<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt.png,
- id=21, 430.60875pt x 226.8475pt>
-File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt
-.png Graphic file (type png)
-
-<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt.
-png>
-Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"10wt.png used on input line 81.
-(pdftex.def)             Requested size: 373.96014pt x 197.00958pt.
+oster/Figures/"05wt.png used on input line 78.
+(pdftex.def)             Requested size: 419.74881pt x 220.40123pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"4wt.png, 
-id=22, 429.605pt x 236.885pt>
+id=21, 429.605pt x 236.885pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"4wt.
 png Graphic file (type png)
 
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"4wt.p
 ng>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"4wt.png used on input line 83.
-(pdftex.def)             Requested size: 373.96014pt x 206.20395pt.
+oster/Figures/"4wt.png used on input line 80.
+(pdftex.def)             Requested size: 419.74881pt x 231.45532pt.
+
+<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt.png,
+ id=22, 430.60875pt x 226.8475pt>
+File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt
+.png Graphic file (type png)
+
+<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt.
+png>
+Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
+oster/Figures/"10wt.png used on input line 82.
+(pdftex.def)             Requested size: 419.74881pt x 221.13214pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"20wt.png,
  id=23, 429.605pt x 236.885pt>
@@ -1468,84 +1519,107 @@ File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"20wt
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"20wt.
 png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"20wt.png used on input line 85.
-(pdftex.def)             Requested size: 373.96014pt x 206.20395pt.
+oster/Figures/"20wt.png used on input line 84.
+(pdftex.def)             Requested size: 419.74881pt x 231.45532pt.
+
+<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"emulsion_
+interface.png, id=24, 605.26125pt x 191.71625pt>
+File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"emul
+sion_interface.png Graphic file (type png)
+
+<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"emuls
+ion_interface.png>
+Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
+oster/Figures/"emulsion_interface.png used on input line 93.
+(pdftex.def)             Requested size: 610.54266pt x 193.392pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"salts.png
-, id=24, 722.7pt x 272.217pt>
+, id=25, 722.7pt x 272.217pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"salt
 s.png Graphic file (type png)
 
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"salts
 .png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"salts.png used on input line 106.
+oster/Figures/"salts.png used on input line 114.
 (pdftex.def)             Requested size: 610.54266pt x 229.97327pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"2wt_salts
-.png, id=25, 660.066pt x 466.8642pt>
+.png, id=26, 660.066pt x 466.8642pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"2wt_
 salts.png Graphic file (type png)
 
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"2wt_s
 alts.png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"2wt_salts.png used on input line 113.
+oster/Figures/"2wt_salts.png used on input line 119.
 (pdftex.def)             Requested size: 686.85323pt x 485.80513pt.
 
 <"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt_salt
-s.png, id=26, 599.3592pt x 399.4122pt>
+s.png, id=27, 686.0832pt x 496.7358pt>
 File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt
 _salts.png Graphic file (type png)
 
 <use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"10wt_
 salts.png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"10wt_salts.png used on input line 118.
-(pdftex.def)             Requested size: 686.85323pt x 457.74808pt.
- (./reu_poster.bbl)
-LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 193.
+oster/Figures/"10wt_salts.png used on input line 124.
+(pdftex.def)             Requested size: 686.85323pt x 497.30304pt.
+ (./reu_poster.bbl
+LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <30.85> not available
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 11.
+)
+LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 205.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.03> not available
-(Font)              size <24.88> substituted on input line 193.
+(Font)              size <24.88> substituted on input line 205.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.92088> not available
-(Font)              size <24.88> substituted on input line 193.
+(Font)              size <24.88> substituted on input line 205.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.515> not available
-(Font)              size <17.28> substituted on input line 193.
+(Font)              size <17.28> substituted on input line 205.
 
 
-<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"logo.png,
- id=27, 1401.235pt x 521.95pt>
-File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"logo
+<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"RiceSTEM3
+.jpg, id=28, 794.97pt x 157.3077pt>
+File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"Rice
+STEM3.jpg Graphic file (type jpg)
+
+<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"RiceS
+TEM3.jpg>
+Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
+oster/Figures/"RiceSTEM3.jpg used on input line 206.
+(pdftex.def)             Requested size: 534.22046pt x 105.71483pt.
+
+<"/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"nsf1.png,
+ id=29, 166.7028pt x 167.6664pt>
+File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"nsf1
 .png Graphic file (type png)
 
-<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"logo.
+<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"nsf1.
 png>
 Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"logo.png used on input line 194.
-(pdftex.def)             Requested size: 305.2655pt x 113.70638pt.
-File: "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"logo
-.png Graphic file (type png)
+oster/Figures/"nsf1.png used on input line 206.
+(pdftex.def)             Requested size: 190.79385pt x 191.91173pt.
 
-<use "/Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/"logo.
-png>
-Package pdftex.def Info: "/Users/hgducharme/Programming/Undergraduate/RiceREU/P
-oster/Figures/"logo.png used on input line 194.
-(pdftex.def)             Requested size: 305.2655pt x 113.70638pt.
+Overfull \hbox (11.43886pt too wide) in paragraph at lines 205--208
+ [] 
+ []
 
-Overfull \hbox (4.99402pt too wide) detected at line 202
+
+Overfull \hbox (4.99402pt too wide) detected at line 214
 [][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][
 ][] [][][][][][][][][] [][][][][][][] 
  []
 
 )
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 3.59998pt on input line 333.
+Overfull \vbox (38.29161pt too high) detected at line 345
+ []
+
 
 Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 []
@@ -1557,13 +1631,15 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 pe.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/mat
 erials.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures
 /05wt.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/
-10wt.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/4
+4wt.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/10
 wt.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/20w
-t.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/salt
-s.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/2wt_
-salts.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/
-10wt_salts.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Fig
-ures/logo.png>]
+t.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster/Figures/emul
+sion_interface.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster
+/Figures/salts.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Poster
+/Figures/2wt_salts.png> </Users/hgducharme/Programming/Undergraduate/RiceREU/Po
+ster/Figures/10wt_salts.png> </Users/hgducharme/Programming/Undergraduate/RiceR
+EU/Poster/Figures/RiceSTEM3.jpg> </Users/hgducharme/Programming/Undergraduate/R
+iceREU/Poster/Figures/nsf1.png>]
 \tf@nav=\write6
 \openout6 = `reu_poster.nav'.
 
@@ -1573,11 +1649,11 @@ ures/logo.png>]
 \tf@snm=\write8
 \openout8 = `reu_poster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 346.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 346.
  (./reu_poster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 346.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 346.
 Package rerunfilecheck Info: File `reu_poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1585,27 +1661,26 @@ Package rerunfilecheck Info: File `reu_poster.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 28.44pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 346.
  ) 
 Here is how much of TeX's memory you used:
- 23369 strings out of 493089
- 459519 string characters out of 6134842
- 552812 words of memory out of 5000000
- 26260 multiletter control sequences out of 15000+600000
- 95351 words of font info for 103 fonts, out of 8000000 for 9000
+ 23311 strings out of 493089
+ 459086 string characters out of 6134842
+ 553293 words of memory out of 5000000
+ 26206 multiletter control sequences out of 15000+600000
+ 31926 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,18n,102p,390b,1455s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/t
-exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/lm/lmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmri
-12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on reu_poster.pdf (1 page, 5817892 bytes).
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/hfbright/hfbr17.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbmo17.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
+Output written on reu_poster.pdf (1 page, 6685489 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 74 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 115 words of extra memory for PDF output out of 10000 (max. 10000000)
 

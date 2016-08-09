@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: reu_poster.aux
 The style file: unsrt.bst
 Database file #1: sample.bib
-Warning--empty journal in Lin:2016aa
-You've used 6 entries,
+You've used 2 entries,
             1791 wiz_defined-function locations,
-            477 strings with 4440 characters,
-and the built_in function-call counts, 931 in all, are:
-= -- 70
-> -- 56
+            457 strings with 3706 characters,
+and the built_in function-call counts, 295 in all, are:
+= -- 23
+> -- 12
 < -- 0
-+ -- 21
-- -- 15
-* -- 36
-:= -- 179
-add.period$ -- 18
-call.type$ -- 6
-change.case$ -- 6
++ -- 5
+- -- 3
+* -- 7
+:= -- 56
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 48
-empty$ -- 85
-format.name$ -- 15
-if$ -- 196
+cite$ -- 2
+duplicate$ -- 13
+empty$ -- 33
+format.name$ -- 3
+if$ -- 64
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 6
-newline$ -- 33
-num.names$ -- 6
-pop$ -- 20
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 9
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 21
+skip$ -- 7
 stack$ -- 0
 substring$ -- 0
-swap$ -- 5
+swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 6
-width$ -- 7
-write$ -- 61
-(There was 1 warning)
+warning$ -- 0
+while$ -- 2
+width$ -- 3
+write$ -- 22

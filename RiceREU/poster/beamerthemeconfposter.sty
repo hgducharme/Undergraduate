@@ -124,6 +124,7 @@
 \definecolor{Black}		  	    {RGB}{30, 30, 30}       % Black  Approximate PANTONE PROCESS-BLACK
 \definecolor{White}		  	    {RGB}{255, 255, 255}    % White  No PANTONE match
 
+\definecolor{hhh}		  	    {RGB}{36, 147, 162} 
 
 
 
@@ -221,7 +222,7 @@
     \begin{flushleft}
     \vskip-1cm
     \begin{tikzpicture}[remember picture,overlay]
-	\shade [inner color=jblue, outer color = gray!20]
+	\shade [inner color=complement, outer color=gray!10] % THIS HAS BEEN ALTERED TO MEET MY COLORS
       (0,0) rectangle (\textwidth,0.3cm);
     \end{tikzpicture}
     \end{flushleft}
