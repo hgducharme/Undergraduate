@@ -1,0 +1,10 @@
+@article{PAH,
+  author  = {Sudip K Samanta, Om V Singh, Rakesh K Jain}, 
+  title   = {Polycyclic aromatic hydrocarbons: environmental pollution and bioremediation},
+  journal = {Trends in Biotechnology},
+  year    = 2002,
+  number  =62,
+  pages   = {243-248},
+  month   = 6,
+  volume  = 20
+}
