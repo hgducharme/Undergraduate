@@ -1,0 +1,5 @@
+cat 10
+dog 20
+duck 30
+rabbit 40
+tiger 50

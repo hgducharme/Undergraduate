@@ -1,0 +1,4 @@
+﻿  cat_dog_input_file.cpp
+c:\users\student\documents\github\undergraduate\cosc1436\examples\cat_dog_input_file\cat_dog_input_file\cat_dog_input_file.cpp(31): warning C4551: function call missing argument list
+  cat_dog_input_file.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\examples\cat_dog_input_file\Debug\cat_dog_input_file.exe
+  cat_dog_input_file.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\examples\cat_dog_input_file\Debug\cat_dog_input_file.pdb (Full PDB)
