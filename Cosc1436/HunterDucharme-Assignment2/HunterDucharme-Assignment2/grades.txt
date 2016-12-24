@@ -1,0 +1,10 @@
+Anderson	90.5	80.75
+Blake	        75	90
+Castillo	55	80
+Dang	        95	85
+Engberg		80	100
+Fu		55	90.5
+Garcia		99	90
+Hung		35	60
+Iona		60.75	60
+Johnson		65	40
