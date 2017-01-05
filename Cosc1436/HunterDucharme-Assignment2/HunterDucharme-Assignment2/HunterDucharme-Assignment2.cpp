@@ -93,6 +93,10 @@ int main()
 	cout << setw(26) << left << "Maximum:" << setw(10) << left << maximumNumericGrade << endl;
 	cout << setw(26) << left << "Class Average:" << setw(10) << left << numericGradeAverage << endl;
 
+	// Close all files.
+	inputFile.close();
+	outputFile.close();
+
 	// Wait for a character to exit the console.
 	cout << "\n\nPress any button to exit the console... ";
 	_getch();

@@ -1,5 +1,6 @@
-﻿  HunterDucharme-Assignment1.cpp
-c:\users\student\documents\github\undergraduate\cosc1436\assignment_one\hunterducharme-assignment1\hunterducharme-assignment1\hunterducharme-assignment1.cpp(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\student\documents\github\undergraduate\cosc1436\assignment_one\hunterducharme-assignment1\hunterducharme-assignment1\hunterducharme-assignment1.cpp(33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  HunterDucharme-Assignment1.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\assignment_one\HunterDucharme-Assignment1\Debug\HunterDucharme-Assignment1.exe
-  HunterDucharme-Assignment1.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\assignment_one\HunterDucharme-Assignment1\Debug\HunterDucharme-Assignment1.pdb (Full PDB)
+﻿  stdafx.cpp
+  HunterDucharme-Assignment1.cpp
+c:\users\student\documents\github\undergraduate\cosc1436\hunterducharme-assignment1\hunterducharme-assignment1\hunterducharme-assignment1.cpp(32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\student\documents\github\undergraduate\cosc1436\hunterducharme-assignment1\hunterducharme-assignment1\hunterducharme-assignment1.cpp(33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  HunterDucharme-Assignment1.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\HunterDucharme-Assignment1\Debug\HunterDucharme-Assignment1.exe
+  HunterDucharme-Assignment1.vcxproj -> C:\Users\Student\Documents\github\Undergraduate\Cosc1436\HunterDucharme-Assignment1\Debug\HunterDucharme-Assignment1.pdb (Full PDB)
