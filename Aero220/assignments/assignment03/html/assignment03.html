@@ -1,0 +1,424 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>assignment03</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-03-10"><meta name="DC.source" content="assignment03.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Header</a></li><li><a href="#2">Exercise 1: Find steady state concentration with fixed-point iteration</a></li><li><a href="#4">Exercise 2: Find the root of f(x)</a></li><li><a href="#5">No, it does not converge because the magnitude of g'(x) is not</a></li><li><a href="#6">less than 1 at all points on the region.</a></li><li><a href="#8">Exercise 3: Compute FWD, CNTRL, and BKWRD differences for cos(x)</a></li><li><a href="#11">Exercise 4:</a></li><li><a href="#13">Exercise 5: Compare finitie difference approximations</a></li><li><a href="#15">Exercise 6:</a></li></ul></div><h2>Header<a name="1"></a></h2><pre class="codeinput"><span class="comment">% -----------------------------------</span>
+<span class="comment">%    HOMEWORK 3</span>
+<span class="comment">%</span>
+<span class="comment">%    Author:      Hunter Ducharme</span>
+<span class="comment">%    Class:       AERO 220</span>
+<span class="comment">%    Professor:   Dr. Raihan</span>
+<span class="comment">%    Due date:    10 Mar 2017</span>
+<span class="comment">% -----------------------------------</span>
+<span class="comment">%%%%</span>
+
+clear; close <span class="string">all</span>; clc;
+
+problem = 6;                     <span class="comment">%#ok&lt;NASGU&gt; % Select a default number.</span>
+problem = input(<span class="string">'Choose a problem (1-6): '</span>); <span class="comment">% Prompt the user for a number.</span>
+
+<span class="comment">% Use a 'switch' statement to allow selection of different problems</span>
+<span class="keyword">switch</span>(problem)
+
+    <span class="keyword">case</span> 1
+</pre><h2>Exercise 1: Find steady state concentration with fixed-point iteration<a name="2"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+
+        <span class="comment">% Equation constants</span>
+        V = 10^6; <span class="comment">% m^3</span>
+        Q = 10^5; <span class="comment">% m^3/yr</span>
+        W = 10^6; <span class="comment">% g/yr</span>
+        k = 0.25; <span class="comment">% (g^.5)/(yr*m^(1.5))</span>
+
+        <span class="comment">% Fixed point iteration data</span>
+        f = @(c) W - Q*c - k*V*sqrt(c);   <span class="comment">% Mass balance equation</span>
+        g = @(c) (1/Q)*(W - k*V*sqrt(c)); <span class="comment">% x = g(x)</span>
+        c0 = 4;                           <span class="comment">% g/m^3, inital guess</span>
+        tol = 0.1;                        <span class="comment">% error tolerance</span>
+
+        <span class="keyword">while</span> abs(f(c0)) &gt; tol
+            c0 = g(c0);
+        <span class="keyword">end</span>
+
+        long(c0)
+</pre><pre class="codeinput">    <span class="keyword">case</span> 2
+</pre><h2>Exercise 2: Find the root of f(x)<a name="4"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+
+        <span class="comment">% 2a. Use Newton's method, compute order of convergence and error</span>
+        <span class="comment">% constant</span>
+        syms <span class="string">x</span>
+        g(x) = (exp(-x) - 3 + x^3 -2*x); <span class="comment">% Function to find root of</span>
+        f_prime = diff(g, x);             <span class="comment">% 1st derivative of f(x)</span>
+        x0 = 2.3;                         <span class="comment">% Initial guess</span>
+        x1 = x0 - (g(x0)/f_prime(x0));    <span class="comment">% Root approximation</span>
+        error1 = zeros(1,5);              <span class="comment">% Absolute errors</span>
+
+        <span class="keyword">for</span> i = 1:5
+            x1 = x0 - (g(x0)/f_prime(x0));
+            error1(1,i) = abs(x1 - x0);
+            x0 = x1;
+        <span class="keyword">end</span>
+
+        alpha = log(error1(1,5)/error1(1,4))/log(error1(1,4)/error1(1,3)); <span class="comment">% Order of convergence</span>
+        gamma = error1(1,2)/(error1(1,1)^alpha);                           <span class="comment">% Asymptotic error constant</span>
+
+        <span class="comment">% 2b. Does Newton's method converge for range [-3,3]?</span>
+        syms <span class="string">k</span>
+        g(k) = (1/2)*(exp(-k) - 3 + k^3);             <span class="comment">% x = g(x)</span>
+        g_prime = g(k)*diff(g, k, 2)/(diff(g, k)^2);  <span class="comment">% Derivative approximation</span>
+        range = linspace(-3,3,1000);                  <span class="comment">% Interval to check convergence on</span>
+        g_prime_eval = eval(subs(g_prime, k, range)); <span class="comment">% Evaluate derivative on the interval</span>
+        plot(range, abs(g_prime_eval));               <span class="comment">% Plot the result</span>
+        hold <span class="string">on</span>;
+        plot([-3 3], [1 1], <span class="keyword">...</span>
+            <span class="string">'LineWidth'</span>, 1.25);                       <span class="comment">% Reference line</span>
+        hold <span class="string">off</span>;
+        ylim([0,2]);
+        title(<span class="string">'Newton''s Condition of Convergence'</span>);
+        xlabel(<span class="string">'Domain'</span>);
+        ylabel(<span class="string">'|g''(x)|'</span>);
+</pre><h2>No, it does not converge because the magnitude of g'(x) is not<a name="5"></a></h2><h2>less than 1 at all points on the region.<a name="6"></a></h2><pre class="codeinput">    <span class="keyword">case</span> 3
+</pre><h2>Exercise 3: Compute FWD, CNTRL, and BKWRD differences for cos(x)<a name="8"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+
+        g = @(x) cos(x); <span class="comment">% Function in question</span>
+        x = pi/4;        <span class="comment">% Point to evaluate function at</span>
+        h = pi/12;       <span class="comment">% Step size</span>
+        a = -sin(x);     <span class="comment">% Actual value of f'(x)</span>
+
+        <span class="comment">% Forward difference approximations</span>
+        fwdDiff2pt = (1/(h))*(g(x+h) - g(x));
+        fwdDiff3pt = (1/(2*h))*( (4*g(x+h)) - g(x+2*h) - 3*g(x));
+        fwdDiff4pt = (1/(6*h))*((18*g(x+h)) - (9*g(x+2*h)) + (2*g(x+3*h)) - 11*g(x));
+        <span class="comment">% Forward difference relative errors</span>
+        fwd2ptError = abs(fwdDiff2pt - a)/abs(a);
+        fwd3ptError = abs(fwdDiff3pt - a)/abs(a);
+        fwd4ptError = abs(fwdDiff4pt - a)/abs(a);
+
+        <span class="comment">% Backward difference approximations</span>
+        bckDiff2pt = (1/h)*(g(x) - g(x-h));
+        bckDiff3pt = (1/(2*h))*(3*g(x) +g(x-2*h) - 4*g(x-h));
+        bckDiff4pt = (1/(6*h))*((11*g(x)) - (18*g(x-h)) + (9*g(x-2*h)) - (2*g(x-3*h)));
+        <span class="comment">% Backward difference relative errors</span>
+        bck2ptError = abs(bckDiff2pt - a)/abs(a);
+        bck3ptError = abs(bckDiff3pt - a)/abs(a);
+        bck4ptError = abs(bckDiff4pt - a)/abs(a);
+
+        <span class="comment">% 3-point central difference approximation</span>
+        ctrlDiff3pt = (1/(2*h))*(g(x+h) - g(x-h));
+        <span class="comment">% Central difference relative error</span>
+        ctrl3ptError = abs(ctrlDiff3pt - a)/abs(a);
+</pre><p>Make a table of all the results</p><pre class="codeinput">        Method = {<span class="string">'Central 3pt'</span>; <span class="string">'Forward 2pt'</span>; <span class="string">'Forward 3pt'</span>; <span class="string">'Forward 4pt'</span>; <span class="keyword">...</span>
+            <span class="string">'Backward 2pt'</span>; <span class="string">'Backward 3pt'</span>; <span class="string">'Backward 4pt'</span>};
+        Calculated = [ctrlDiff3pt; fwdDiff2pt; fwdDiff3pt; fwdDiff4pt; <span class="keyword">...</span>
+            bckDiff2pt; bckDiff3pt; bckDiff4pt];
+        Actual(1:7, 1) = a;
+        RelativeError = [ctrl3ptError; fwd2ptError; fwd3ptError; fwd4ptError; <span class="keyword">...</span>
+            bck2ptError; bck3ptError; bck4ptError];
+
+        T = table(Calculated, Actual, RelativeError, <span class="string">'RowNames'</span>, Method);
+        disp(T)
+</pre><pre class="codeinput">    <span class="keyword">case</span> 4
+</pre><h2>Exercise 4:<a name="11"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+</pre><pre class="codeinput">    <span class="keyword">case</span> 5
+</pre><h2>Exercise 5: Compare finitie difference approximations<a name="13"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+
+        g = @(x) exp(-2*x) - x;     <span class="comment">% Function in question</span>
+        x = 2;                      <span class="comment">% Approximate f'(x=2)</span>
+        dx = linspace(.01,.5,1000); <span class="comment">% Interval: [.01, .05] broken into 1000 values</span>
+        a = -2*exp(-2*x) - 1;       <span class="comment">% Actual value of f'(x=2)</span>
+
+        fwd3ptError = zeros(1, length(dx));
+        bck3ptError = zeros(1, length(dx));
+        ctrl3ptError = zeros(1, length(dx));
+
+        <span class="comment">% 5a. Find actual derivative. Done on paper.</span>
+        <span class="comment">% 5b. Plot absolute error of 3 point fwd, bckwd, and central</span>
+        <span class="comment">% approximations on a logarithmic scale.</span>
+
+        <span class="keyword">for</span> i=1:length(dx)
+            <span class="comment">% Compute forward, backward, and central difference for given</span>
+            <span class="comment">% step size h = dx(i).</span>
+            fwdDiff3pt = (1/(2*dx(i)))*( (4*g(x+dx(i))) - g(x+2*dx(i)) - 3*g(x));
+            bckDiff3pt = (1/(2*dx(i)))*(3*g(x) +g(x-2*dx(i)) - 4*g(x-dx(i)));
+            ctrlDiff3pt = (1/(2*dx(i)))*(g(x+dx(i)) - g(x-dx(i)));
+
+            <span class="comment">% Compute absolute errors for each finite difference.</span>
+            fwd3ptError(i) = abs(fwdDiff3pt - a);
+            bck3ptError(i) = abs(bckDiff3pt - a);
+            ctrl3ptError(i) = abs(ctrlDiff3pt - a);
+        <span class="keyword">end</span>
+
+        <span class="comment">% Plot absolute errors of each finite difference.</span>
+        semilogy(dx, fwd3ptError, <span class="string">'DisplayName'</span>, <span class="string">'Forward difference'</span>);
+        hold <span class="string">on</span>;
+        semilogy(dx, bck3ptError, <span class="string">'DisplayName'</span>, <span class="string">'Backward difference'</span>);
+        hold <span class="string">on</span>;
+        semilogy(dx, ctrl3ptError, <span class="string">'DisplayName'</span>, <span class="string">'Central difference'</span>);
+        title(<span class="string">'Absolute Errors of 3-point Finite Difference Approximations'</span>);
+        legend(<span class="string">'show'</span>, <span class="string">'Location'</span>, <span class="string">'best'</span>);
+        xlabel(<span class="string">'Step size, h'</span>);
+        ylabel(<span class="string">'Absolute error'</span>);
+</pre><pre class="codeinput">    <span class="keyword">case</span> 6
+</pre><h2>Exercise 6:<a name="15"></a></h2><pre class="codeinput">        clc; clear; close <span class="string">all</span>;
+
+        g = @(x) sin(x/2)^2; <span class="comment">% Function in question</span>
+        h1 = 0.1;
+        h2 = 0.01;
+</pre><pre class="codeinput">    <span class="keyword">otherwise</span>
+        error1(<span class="string">'Invalid Problem Number'</span>); <span class="comment">%#ok&lt;NOEFF&gt;</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Error using input
+Cannot call INPUT from EVALC.
+
+Error in assignment03 (line 16)
+problem = input('Choose a problem (1-6): '); % Prompt the user for a number.
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Header
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%    HOMEWORK 3
+%
+%    Author:      Hunter Ducharme
+%    Class:       AERO 220
+%    Professor:   Dr. Raihan
+%    Due date:    10 Mar 2017
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%%%% 
+
+clear; close all; clc;
+
+problem = 6;                     %#ok<NASGU> % Select a default number.
+problem = input('Choose a problem (1-6): '); % Prompt the user for a number.
+
+% Use a 'switch' statement to allow selection of different problems
+switch(problem)
+    
+    case 1
+        %% Exercise 1: Find steady state concentration with fixed-point iteration
+        clc; clear; close all;
+        
+        % Equation constants
+        V = 10^6; % m^3
+        Q = 10^5; % m^3/yr
+        W = 10^6; % g/yr
+        k = 0.25; % (g^.5)/(yr*m^(1.5))
+        
+        % Fixed point iteration data
+        f = @(c) W - Q*c - k*V*sqrt(c);   % Mass balance equation
+        g = @(c) (1/Q)*(W - k*V*sqrt(c)); % x = g(x)
+        c0 = 4;                           % g/m^3, inital guess
+        tol = 0.1;                        % error tolerance
+         
+        while abs(f(c0)) > tol
+            c0 = g(c0);
+        end
+        
+        long(c0)
+        
+    case 2
+        %% Exercise 2: Find the root of f(x)
+        clc; clear; close all;
+        
+        % 2a. Use Newton's method, compute order of convergence and error
+        % constant
+        syms x
+        g(x) = (exp(-x) - 3 + x^3 -2*x); % Function to find root of
+        f_prime = diff(g, x);             % 1st derivative of f(x)
+        x0 = 2.3;                         % Initial guess
+        x1 = x0 - (g(x0)/f_prime(x0));    % Root approximation
+        error1 = zeros(1,5);              % Absolute errors
+        
+        for i = 1:5
+            x1 = x0 - (g(x0)/f_prime(x0));
+            error1(1,i) = abs(x1 - x0);
+            x0 = x1;
+        end
+        
+        alpha = log(error1(1,5)/error1(1,4))/log(error1(1,4)/error1(1,3)); % Order of convergence
+        gamma = error1(1,2)/(error1(1,1)^alpha);                           % Asymptotic error constant
+        
+        % 2b. Does Newton's method converge for range [-3,3]?
+        syms k
+        g(k) = (1/2)*(exp(-k) - 3 + k^3);             % x = g(x)
+        g_prime = g(k)*diff(g, k, 2)/(diff(g, k)^2);  % Derivative approximation
+        range = linspace(-3,3,1000);                  % Interval to check convergence on
+        g_prime_eval = eval(subs(g_prime, k, range)); % Evaluate derivative on the interval
+        plot(range, abs(g_prime_eval));               % Plot the result
+        hold on;
+        plot([-3 3], [1 1], ...
+            'LineWidth', 1.25);                       % Reference line
+        hold off;
+        ylim([0,2]);
+        title('Newton''s Condition of Convergence');
+        xlabel('Domain');
+        ylabel('|g''(x)|');
+        
+        %%% No, it does not converge because the magnitude of g'(x) is not
+        %%% less than 1 at all points on the region.
+        
+    case 3
+        %% Exercise 3: Compute FWD, CNTRL, and BKWRD differences for cos(x)
+        clc; clear; close all;
+        
+        g = @(x) cos(x); % Function in question
+        x = pi/4;        % Point to evaluate function at
+        h = pi/12;       % Step size
+        a = -sin(x);     % Actual value of f'(x)
+        
+        % Forward difference approximations
+        fwdDiff2pt = (1/(h))*(g(x+h) - g(x));
+        fwdDiff3pt = (1/(2*h))*( (4*g(x+h)) - g(x+2*h) - 3*g(x));
+        fwdDiff4pt = (1/(6*h))*((18*g(x+h)) - (9*g(x+2*h)) + (2*g(x+3*h)) - 11*g(x));
+        % Forward difference relative errors
+        fwd2ptError = abs(fwdDiff2pt - a)/abs(a);
+        fwd3ptError = abs(fwdDiff3pt - a)/abs(a);
+        fwd4ptError = abs(fwdDiff4pt - a)/abs(a);
+      
+        % Backward difference approximations
+        bckDiff2pt = (1/h)*(g(x) - g(x-h));
+        bckDiff3pt = (1/(2*h))*(3*g(x) +g(x-2*h) - 4*g(x-h));
+        bckDiff4pt = (1/(6*h))*((11*g(x)) - (18*g(x-h)) + (9*g(x-2*h)) - (2*g(x-3*h)));
+        % Backward difference relative errors
+        bck2ptError = abs(bckDiff2pt - a)/abs(a);
+        bck3ptError = abs(bckDiff3pt - a)/abs(a);
+        bck4ptError = abs(bckDiff4pt - a)/abs(a);
+        
+        % 3-point central difference approximation
+        ctrlDiff3pt = (1/(2*h))*(g(x+h) - g(x-h));
+        % Central difference relative error
+        ctrl3ptError = abs(ctrlDiff3pt - a)/abs(a);
+        %%
+        % Make a table of all the results
+        Method = {'Central 3pt'; 'Forward 2pt'; 'Forward 3pt'; 'Forward 4pt'; ...
+            'Backward 2pt'; 'Backward 3pt'; 'Backward 4pt'};
+        Calculated = [ctrlDiff3pt; fwdDiff2pt; fwdDiff3pt; fwdDiff4pt; ...
+            bckDiff2pt; bckDiff3pt; bckDiff4pt];
+        Actual(1:7, 1) = a;
+        RelativeError = [ctrl3ptError; fwd2ptError; fwd3ptError; fwd4ptError; ...
+            bck2ptError; bck3ptError; bck4ptError];
+        
+        T = table(Calculated, Actual, RelativeError, 'RowNames', Method);
+        disp(T)
+        
+    case 4
+        %% Exercise 4: 
+        clc; clear; close all;
+        
+    case 5
+        %% Exercise 5: Compare finitie difference approximations
+        clc; clear; close all;
+        
+        g = @(x) exp(-2*x) - x;     % Function in question
+        x = 2;                      % Approximate f'(x=2)
+        dx = linspace(.01,.5,1000); % Interval: [.01, .05] broken into 1000 values
+        a = -2*exp(-2*x) - 1;       % Actual value of f'(x=2)
+        
+        fwd3ptError = zeros(1, length(dx));
+        bck3ptError = zeros(1, length(dx));
+        ctrl3ptError = zeros(1, length(dx));
+        
+        % 5a. Find actual derivative. Done on paper.
+        % 5b. Plot absolute error of 3 point fwd, bckwd, and central
+        % approximations on a logarithmic scale.
+        
+        for i=1:length(dx)
+            % Compute forward, backward, and central difference for given
+            % step size h = dx(i).
+            fwdDiff3pt = (1/(2*dx(i)))*( (4*g(x+dx(i))) - g(x+2*dx(i)) - 3*g(x));
+            bckDiff3pt = (1/(2*dx(i)))*(3*g(x) +g(x-2*dx(i)) - 4*g(x-dx(i)));
+            ctrlDiff3pt = (1/(2*dx(i)))*(g(x+dx(i)) - g(x-dx(i)));
+            
+            % Compute absolute errors for each finite difference.
+            fwd3ptError(i) = abs(fwdDiff3pt - a);
+            bck3ptError(i) = abs(bckDiff3pt - a);
+            ctrl3ptError(i) = abs(ctrlDiff3pt - a);
+        end
+        
+        % Plot absolute errors of each finite difference.
+        semilogy(dx, fwd3ptError, 'DisplayName', 'Forward difference');
+        hold on;
+        semilogy(dx, bck3ptError, 'DisplayName', 'Backward difference');
+        hold on;
+        semilogy(dx, ctrl3ptError, 'DisplayName', 'Central difference');
+        title('Absolute Errors of 3-point Finite Difference Approximations');
+        legend('show', 'Location', 'best');
+        xlabel('Step size, h');
+        ylabel('Absolute error');
+        
+    case 6
+        %% Exercise 6: 
+        clc; clear; close all;
+        
+        g = @(x) sin(x/2)^2; % Function in question
+        h1 = 0.1;
+        h2 = 0.01;
+        
+    otherwise
+        error1('Invalid Problem Number'); %#ok<NOEFF>
+end
+##### SOURCE END #####
+--></body></html>

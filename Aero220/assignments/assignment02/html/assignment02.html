@@ -1,0 +1,399 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>assignment02</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-17"><meta name="DC.source" content="assignment02.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Header</a></li><li><a href="#2">Exercise 1: Error Conceptual Questions.</a></li><li><a href="#4">Exercise 2: Observing errors using chop().</a></li><li><a href="#6">Exercise 3: Approximate e^(-4) using taylor series.</a></li><li><a href="#8">Exercise 4: Find real root of f(x) = ln(x).</a></li><li><a href="#10">Exercise 5: Determing the value of k that satisfies the equation.</a></li><li><a href="#12">Exercise 6: Use taylor series to simplify equation.</a></li></ul></div><h2>Header<a name="1"></a></h2><pre class="codeinput"><span class="comment">% -----------------------------------</span>
+<span class="comment">%    HOMEWORK 2</span>
+<span class="comment">%</span>
+<span class="comment">%    Author:      Hunter Ducharme</span>
+<span class="comment">%    Class:       AERO 220</span>
+<span class="comment">%    Professor:   Dr. Raihan</span>
+<span class="comment">%    Due date:    17 Feb 2017</span>
+<span class="comment">% -----------------------------------</span>
+
+<span class="comment">%%%%</span>
+clear; close <span class="string">all</span>; clc;
+
+problem = 6;                     <span class="comment">%#ok&lt;NASGU&gt; % Select a default number.</span>
+problem = input(<span class="string">'Choose a problem (1-6): '</span>); <span class="comment">% Prompt the user for a number.</span>
+
+<span class="comment">% Use a 'switch' statement to allow selection of different problems</span>
+<span class="keyword">switch</span>(problem)
+
+    <span class="keyword">case</span> 1
+</pre><h2>Exercise 1: Error Conceptual Questions.<a name="2"></a></h2><p><b>Truncation error:</b> A truncation error occurs when using an approximation in place of an exact mathematical procedure (e.g. Taylor Series). The size of the truncation error is proportional to the number of iterations.</p><p><b>Round-off error:</b> A round-off error is the difference between an approximation of a number and the actual exact value of that number. Round off errors dominate during large computations (i.e. a lot of computations) and adding a large number to a small number.</p><pre class="codeinput">    <span class="keyword">case</span> 2
+</pre><h2>Exercise 2: Observing errors using chop().<a name="4"></a></h2><pre class="codeinput">        clc; clear; close;
+
+        <span class="comment">% 2.1 Evaluate the cubic polynomial at x = 1.32.</span>
+        a = 1.32;
+
+        <span class="comment">% f(1.32) with regular machine error.</span>
+        machinePrecision = (3.15*a^2) - (2.11*a) + 4;
+        <span class="comment">% f(1.32) using 3 sig figs at each arithmetic operation.</span>
+        threeSigFigs = chop((3.15)*(a^2), 3) - chop(2.11*a, 3) + 4;
+        <span class="comment">% Calculate errors for 2.1.</span>
+        absoluteError = abs(machinePrecision - threeSigFigs);
+        relativeError = absoluteError/abs(machinePrecision);
+
+        <span class="comment">% 2.2 Repeat 2.1 but with nested multiplication.</span>
+        i = chop(3.15*a, 3);
+        j = chop(a-2.11, 3);
+        k = chop(j*a, 3);
+        l = chop(k+4.01, 3);
+        <span class="comment">% Calculate errors for 2.2.</span>
+        absoluteError2 = abs(machinePrecision - l);
+        relativeError2 = absoluteError2/abs(machinePrecision);
+</pre><pre class="codeinput">    <span class="keyword">case</span> 3
+</pre><h2>Exercise 3: Approximate e^(-4) using taylor series.<a name="6"></a></h2><pre class="codeinput">        clc; clear; close;
+
+        precision = 4;             <span class="comment">% The amount of digits to keep.</span>
+        iterations = 7;            <span class="comment">% The number of iterations to use.</span>
+        trueValue = 1.832*10^(-2); <span class="comment">% True value of e^(-4).</span>
+
+        <span class="comment">% 3a.</span>
+        approximationA = 0; <span class="comment">% The approximation of part 3.a.</span>
+        <span class="keyword">for</span> i = 0:iterations
+            approximationA = approximationA + ((-1)^i)*(4^i)/(factorial(i));
+        <span class="keyword">end</span>
+
+        <span class="comment">% 3b.</span>
+        approximation = 0;
+        <span class="keyword">for</span> i = 0:iterations
+            approximation = (approximation) + (4^i)/(factorial(i));
+        <span class="keyword">end</span>
+
+        <span class="comment">% The approximation of part 3b.</span>
+        approximationB = (1/approximation);
+
+        <span class="comment">% Compute errors for both cases.</span>
+        absoluteErrorA = abs(trueValue - approximationA);
+        absoluteErrorB = abs(trueValue - approximationB);
+        relativeErrorA = absoluteErrorA/abs(trueValue);
+        relativeErrorB = absoluteErrorB/abs(trueValue);
+
+        fprintf(<span class="string">'Part 3b is more accurate because it avoids the summation over large terms with opposite terms.'</span>);
+</pre><pre class="codeinput">    <span class="keyword">case</span> 4
+</pre><h2>Exercise 4: Find real root of f(x) = ln(x).<a name="8"></a></h2><pre class="codeinput">        clc; clear; close;
+
+        <span class="comment">% 4a. Use bisection method.</span>
+        f = @(x) log(x); <span class="comment">% Function to find root of.</span>
+        error = 0.1;     <span class="comment">% Error tolerance.</span>
+        a = 0.5;         <span class="comment">% Lower bound.</span>
+        b = 5;           <span class="comment">% Upper bound.</span>
+        c = b;           <span class="comment">% Midpoint of the interval.</span>
+
+        <span class="keyword">while</span> f(c) &gt; error
+            <span class="comment">% Calculate the midpoint.</span>
+            c = (a+b)/2;
+
+            <span class="comment">% If c is the root, break the loop.</span>
+            <span class="keyword">if</span> f(c) == 0
+                <span class="keyword">break</span>;
+            <span class="comment">% Elseif f(a) &amp; f(c) have opposite signs, move the upper bound</span>
+            <span class="comment">% to c.</span>
+            <span class="keyword">elseif</span> (f(a)*f(c) &lt; 0)
+                b = c;
+            <span class="comment">% Else, move the lower bound to c.</span>
+            <span class="keyword">else</span>
+                a = c;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+
+        <span class="comment">% 4b. Use secant method.</span>
+        xNMinusOne = 0.5; <span class="comment">% Lower bound.</span>
+        xN = 5;           <span class="comment">% Upper bound.</span>
+        <span class="comment">% Intersection point.</span>
+        xNPlusOne = (xNMinusOne) - (f(xNMinusOne)*(xN - xNMinusOne)/(f(xN) - f(xNMinusOne)));
+
+        <span class="keyword">while</span> abs(f(xNPlusOne)) &gt; error
+            <span class="comment">% Calculate intersection point.</span>
+            xNPlusOne = (xNMinusOne) - (f(xNMinusOne)*(xN - xNMinusOne)/(f(xN) - f(xNMinusOne)));
+
+            <span class="comment">% Update the x values.</span>
+            xNMinusOne = xN;
+            xN = xNPlusOne;
+        <span class="keyword">end</span>
+</pre><pre class="codeinput">    <span class="keyword">case</span> 5
+</pre><h2>Exercise 5: Determing the value of k that satisfies the equation.<a name="10"></a></h2><pre class="codeinput">        clc; clear; close;
+
+        f = @(k,M) 1 + (k-1)*((1.3^2)/2)^(k/(k-1)); <span class="comment">% Function in question.</span>
+        M = 0.5;  <span class="comment">% Mach number.</span>
+        p0 = 415; <span class="comment">% kPa</span>
+        p1 = 350; <span class="comment">% kPa</span>
+        p = p0/p1;
+
+        range = -50:50;
+        plot(range, f(range, M));
+        title(<span class="string">'f(k) vs. k'</span>);
+        xlabel(<span class="string">'k Value'</span>);
+        ylabel(<span class="string">'f(k)'</span>);
+
+        a = -50;         <span class="comment">% Lower bound.</span>
+        b = 50;          <span class="comment">% Upper bound.</span>
+        c = b;           <span class="comment">% Regula-falsi point.</span>
+        n = 1;           <span class="comment">% Iteration counter.</span>
+        error = 10^(-5); <span class="comment">% Error tolerance.</span>
+
+        <span class="comment">% Look for root until error tolerance is met.</span>
+        <span class="keyword">while</span> abs(f(c)) &gt; error
+            <span class="comment">% Calculate the regula-falsi point.</span>
+            c = a - f(a)*(b-a)/(f(b)-f(a));
+            <span class="comment">% If a and c give the same sign for y, then move a up to c.</span>
+            <span class="keyword">if</span> sign(f(c)) == sign(f(a))
+                a = c;
+            <span class="comment">% Else, move b down to c.</span>
+            <span class="keyword">else</span>
+                b = c;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+</pre><pre class="codeinput">    <span class="keyword">case</span> 6
+</pre><h2>Exercise 6: Use taylor series to simplify equation.<a name="12"></a></h2><p>Done on piece of paper.</p><pre class="codeinput">    <span class="keyword">otherwise</span>
+        error(<span class="string">'Invalid Problem Number'</span>); <span class="comment">%#ok&lt;NOEFF&gt;</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Error using input
+Cannot call INPUT from EVALC.
+
+Error in assignment02 (line 16)
+problem = input('Choose a problem (1-6): '); % Prompt the user for a number.
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Header
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%    HOMEWORK 2
+%
+%    Author:      Hunter Ducharme
+%    Class:       AERO 220
+%    Professor:   Dr. Raihan
+%    Due date:    17 Feb 2017
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+%%%% 
+clear; close all; clc;
+
+problem = 6;                     %#ok<NASGU> % Select a default number.
+problem = input('Choose a problem (1-6): '); % Prompt the user for a number.
+
+% Use a 'switch' statement to allow selection of different problems
+switch(problem)
+    
+    case 1
+        %% Exercise 1: Error Conceptual Questions.
+        % 
+        % *Truncation error:* A truncation error occurs when using an
+        % approximation in place of an exact mathematical procedure (e.g.
+        % Taylor Series). The size of the truncation error is proportional
+        % to the number of iterations.
+        %
+        % *Round-off error:* A round-off error is the difference between an
+        % approximation of a number and the actual exact value of that
+        % number. Round off errors dominate during large computations (i.e.
+        % a lot of computations) and adding a large number to a small
+        % number.
+    
+    case 2
+        %% Exercise 2: Observing errors using chop().
+        clc; clear; close;
+        
+        % 2.1 Evaluate the cubic polynomial at x = 1.32.
+        a = 1.32;
+
+        % f(1.32) with regular machine error.
+        machinePrecision = (3.15*a^2) - (2.11*a) + 4;
+        % f(1.32) using 3 sig figs at each arithmetic operation.
+        threeSigFigs = chop((3.15)*(a^2), 3) - chop(2.11*a, 3) + 4;
+        % Calculate errors for 2.1.
+        absoluteError = abs(machinePrecision - threeSigFigs);
+        relativeError = absoluteError/abs(machinePrecision);
+        
+        % 2.2 Repeat 2.1 but with nested multiplication.
+        i = chop(3.15*a, 3);
+        j = chop(a-2.11, 3);
+        k = chop(j*a, 3);
+        l = chop(k+4.01, 3);
+        % Calculate errors for 2.2.
+        absoluteError2 = abs(machinePrecision - l);
+        relativeError2 = absoluteError2/abs(machinePrecision);
+        
+    case 3
+        %% Exercise 3: Approximate e^(-4) using taylor series.
+        clc; clear; close;
+        
+        precision = 4;             % The amount of digits to keep.
+        iterations = 7;            % The number of iterations to use.
+        trueValue = 1.832*10^(-2); % True value of e^(-4).
+        
+        % 3a.
+        approximationA = 0; % The approximation of part 3.a.
+        for i = 0:iterations
+            approximationA = approximationA + ((-1)^i)*(4^i)/(factorial(i));
+        end
+        
+        % 3b.
+        approximation = 0;
+        for i = 0:iterations
+            approximation = (approximation) + (4^i)/(factorial(i));
+        end
+        
+        % The approximation of part 3b.
+        approximationB = (1/approximation);
+        
+        % Compute errors for both cases. 
+        absoluteErrorA = abs(trueValue - approximationA);
+        absoluteErrorB = abs(trueValue - approximationB);
+        relativeErrorA = absoluteErrorA/abs(trueValue);
+        relativeErrorB = absoluteErrorB/abs(trueValue);
+        
+        fprintf('Part 3b is more accurate because it avoids the summation over large terms with opposite terms.');
+        
+    case 4
+        %% Exercise 4: Find real root of f(x) = ln(x).
+        clc; clear; close;
+        
+        % 4a. Use bisection method.
+        f = @(x) log(x); % Function to find root of.
+        error = 0.1;     % Error tolerance.
+        a = 0.5;         % Lower bound.
+        b = 5;           % Upper bound.
+        c = b;           % Midpoint of the interval.
+        
+        while f(c) > error
+            % Calculate the midpoint.
+            c = (a+b)/2;
+            
+            % If c is the root, break the loop.
+            if f(c) == 0
+                break;
+            % Elseif f(a) & f(c) have opposite signs, move the upper bound
+            % to c.
+            elseif (f(a)*f(c) < 0)
+                b = c;
+            % Else, move the lower bound to c.
+            else 
+                a = c;
+            end
+        end
+        
+        % 4b. Use secant method.
+        xNMinusOne = 0.5; % Lower bound.
+        xN = 5;           % Upper bound.
+        % Intersection point.
+        xNPlusOne = (xNMinusOne) - (f(xNMinusOne)*(xN - xNMinusOne)/(f(xN) - f(xNMinusOne)));
+        
+        while abs(f(xNPlusOne)) > error 
+            % Calculate intersection point.
+            xNPlusOne = (xNMinusOne) - (f(xNMinusOne)*(xN - xNMinusOne)/(f(xN) - f(xNMinusOne)));
+
+            % Update the x values.
+            xNMinusOne = xN;
+            xN = xNPlusOne;
+        end
+        
+    case 5
+        %% Exercise 5: Determing the value of k that satisfies the equation.
+        clc; clear; close;
+        
+        f = @(k,M) 1 + (k-1)*((1.3^2)/2)^(k/(k-1)); % Function in question.
+        M = 0.5;  % Mach number.
+        p0 = 415; % kPa
+        p1 = 350; % kPa
+        p = p0/p1;
+        
+        range = -50:50;
+        plot(range, f(range, M));
+        title('f(k) vs. k');
+        xlabel('k Value');
+        ylabel('f(k)');
+        
+        a = -50;         % Lower bound.
+        b = 50;          % Upper bound.
+        c = b;           % Regula-falsi point.
+        n = 1;           % Iteration counter.
+        error = 10^(-5); % Error tolerance.
+
+        % Look for root until error tolerance is met.
+        while abs(f(c)) > error
+            % Calculate the regula-falsi point.
+            c = a - f(a)*(b-a)/(f(b)-f(a));
+            % If a and c give the same sign for y, then move a up to c.
+            if sign(f(c)) == sign(f(a))
+                a = c;     
+            % Else, move b down to c.
+            else
+                b = c;
+            end
+        end
+
+    case 6
+        %% Exercise 6: Use taylor series to simplify equation.
+        %
+        % Done on piece of paper.
+    otherwise
+        error('Invalid Problem Number'); %#ok<NOEFF>
+end
+##### SOURCE END #####
+--></body></html>
