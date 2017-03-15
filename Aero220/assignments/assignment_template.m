@@ -6,7 +6,7 @@
 %    Author:      Hunter Ducharme
 %    Class:       AERO 220
 %    Professor:   Dr. Raihan
-%    Due date:    17 Feb 2017
+%    Due date:    [DAY] [MONTH] [YEAR]
 % -----------------------------------
 %%%% 
 
@@ -20,25 +20,27 @@ switch(problem)
     
     case 1
         %% Exercise 1: 
+        clc; clear; close all;
         
     case 2
         %% Exercise 2: 
-        clc; clear; close;
+        clc; clear; close all;
         
     case 3
         %% Exercise 3: 
-        clc; clear; close;        
+        clc; clear; close all;        
         
     case 4
         %% Exercise 4: 
-        clc; clear; close;
+        clc; clear; close all;
         
     case 5
         %% Exercise 5: 
-        clc; clear; close;
+        clc; clear; close all;
 
     case 6
         %% Exercise 6: 
+        clc; clear; close all;
         
     otherwise
         error('Invalid Problem Number'); %#ok<NOEFF>
