@@ -1,0 +1,45 @@
+help input
+ <strong>input</strong>  Prompt for user input. 
+    RESULT = <strong>input</strong>(PROMPT) displays the PROMPT string on the screen, waits
+    for input from the keyboard, evaluates any expressions in the input,
+    and returns the value in RESULT. To evaluate expressions, <strong>input</strong> accesses
+    variables in the current workspace. If you press the return key without
+    entering anything, <strong>input</strong> returns an empty matrix.
+ 
+    STR = <strong>input</strong>(PROMPT,'s') returns the entered text as a MATLAB string,
+    without evaluating expressions.
+ 
+    To create a prompt that spans several lines, use '\n' to indicate each
+    new line. To include a backslash ('\') in the prompt, use '\\'.
+ 
+    Example:
+ 
+       reply = input('Do you want more? Y/N [Y]:','s');
+       if isempty(reply)
+          reply = 'Y';
+       end
+ 
+    See also <a href="matlab:help keyboard">keyboard</a>.
+
+    <a href="matlab:doc input">Reference page for input</a>
+
+name = input('Please enter your name:', 's');
+Please enter your name:Hunter
+name = input('Please enter your name: ', 's');
+Please enter your name: Hunter
+age = input('Please enter your age: ', 's');
+Please enter your age: 19
+fprintf('%s\n', 'Howdy, %s! You are %s years old', name, age)
+Howdy, %s! You are %s years old
+Hunter
+19
+fprint('Howdy, %s! You are %s years old.', name, age)
+{Undefined function or variable 'fprint'.
+} 
+fprintf('Howdy, %s! You are %s years old.', name, age)
+Howdy, Hunter! You are 19 years old.fprintf('Howdy, %s! You are %s years old.'\n, name, age)
+{Undefined function or variable 'n'.
+} 
+fprintf('Howdy, %s! You are %s years old.\n', name, age)
+Howdy, Hunter! You are 19 years old.
+diary off
