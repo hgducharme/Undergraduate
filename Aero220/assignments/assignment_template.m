@@ -1,5 +1,3 @@
-%% Header
-
 % -----------------------------------
 %    HOMEWORK [NUMBER]
 %
@@ -15,7 +13,7 @@ clear; close all; clc;
 problem = 6;                     %#ok<NASGU> % Select a default number.
 problem = input('Choose a problem (1-6): '); % Prompt the user for a number.
 
-% Use a 'switch' statement to allow selection of different problems
+% Use a 'switch' statement to allow selection of different problems.
 switch(problem)
     
     case 1
@@ -43,5 +41,5 @@ switch(problem)
         clc; clear; close all;
         
     otherwise
-        error('Invalid Problem Number'); %#ok<NOEFF>
+        error('Invalid Problem Number');
 end
