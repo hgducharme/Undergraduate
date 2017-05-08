@@ -35,3 +35,4 @@ states(1:number_of_states) = State;
 state(1).temperature = 245.95; % K
 state(1).pressure = 44.034; % kPa
 state(1).mass_flow_rate = (1225/12); % kg/s
+interpolate_all_properties(state(1))
