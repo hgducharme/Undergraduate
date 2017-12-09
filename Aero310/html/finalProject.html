@@ -1,0 +1,491 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>finalProject</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-12-05"><meta name="DC.source" content="finalProject.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Known quantities</a></li><li><a href="#3">Velocity vectors</a></li><li><a href="#4">Acceleration vectors</a></li><li><a href="#5">Rod 1</a></li><li><a href="#6">Rod 2</a></li><li><a href="#7">Rod 3</a></li><li><a href="#8">Rod 4</a></li><li><a href="#9">System of Differential Equations for the Entire System</a></li></ul></div><pre class="codeinput">clc; clear; close;
+</pre><h2>Known quantities<a name="2"></a></h2><pre class="codeinput">syms <span class="string">L</span> <span class="string">m</span> <span class="string">g</span> <span class="string">r</span> <span class="string">theta(t)</span> <span class="string">omegaAG(t)</span> <span class="string">transport</span>
+
+<span class="comment">% Constants and reference frames</span>
+gravity = [0; -m*g; 0];                    <span class="comment">% A or G reference frame</span>
+omega = [0; -omegaAG(t); 0];               <span class="comment">% A or G reference frame</span>
+
+<span class="comment">% Angular momentum of frame B relative to frame G</span>
+omegaBG = [-omegaAG(t)*cos(theta(t)/2);<span class="keyword">...</span>
+           omegaAG(t)*sin(theta(t)/2);<span class="keyword">...</span>
+           -(1/2)*diff(theta(t),t)];       <span class="comment">% B reference frame</span>
+
+<span class="comment">% Angular momentum of frame C relative to frame G</span>
+omegaCG = [-omegaAG(t)*cos(theta(t)/2);<span class="keyword">...</span>
+           omegaAG(t)*sin(theta(t)/2);<span class="keyword">...</span>
+           (1/2)*diff(theta(t),t)];        <span class="comment">% C reference frame</span>
+
+<span class="comment">% [a1; a2; a3] = (...)(b1; b2; b3]</span>
+BFrameToAFrame = [-sin(theta(t)/2), -cos(theta(t)/2), 0;<span class="keyword">...</span>
+                    cos(theta(t)/2), -sin(theta(t)/2), 0;<span class="keyword">...</span>
+                    0, 0, 1];
+
+<span class="comment">% [a1; a2; a3] = (...)(c1; c2; c3]</span>
+CFrameToAFrame = [sin(theta(t)/2), cos(theta(t)/2), 0;<span class="keyword">...</span>
+                  cos(theta(t)/2), -sin(theta(t)/2), 0;<span class="keyword">...</span>
+                  0, 0, 1];
+
+<span class="comment">% Moment of inertia for a cylindrical bar relative to its principal-axis</span>
+<span class="comment">% coordinate system</span>
+cylindricalBarMOI = [(m/2)*r^2;<span class="keyword">...</span>
+                     (m/12)*(3*r^2 + L^2);<span class="keyword">...</span>
+                     (m/12)*(3*r^2 + L^2)];
+
+<span class="comment">% Position vectors</span>
+r1 = (L/2)*[-sin(theta(t)/2); cos(theta(t)/2); 0]; <span class="comment">% A reference frame</span>
+r2 = (L/2)*[ sin(theta(t)/2); cos(theta(t)/2); 0]; <span class="comment">% A reference frame</span>
+r3 = 2*r1 + (L/2)*[ sin(theta(t)/2); cos(theta(t)/2); 0]; <span class="comment">% A reference frame</span>
+r4 = 2*r2 + (L/2)*[-sin(theta(t)/2); cos(theta(t)/2); 0]; <span class="comment">% A reference frame</span>
+position = [r1; r2; r3; r4];
+</pre><h2>Velocity vectors<a name="3"></a></h2><pre class="codeinput">localVelocity = diff(position, t);                  <span class="comment">% Velocity relative to the spinning reference frame</span>
+velocityTransport = sym(zeros(length(position), 1)); <span class="comment">% Velocity transport theorem</span>
+
+<span class="comment">% Iterate from 1 to 4, but there is 12 position rows.</span>
+<span class="comment">% We need to map the natural #s to the set S =</span>
+<span class="comment">% {(1,2,3),(4,5,6),...(a,b,c)}</span>
+<span class="comment">% Recursive formula: (a,b,c) = (n + 2*(n-1), a+1, a+2), for natural number</span>
+<span class="comment">% n</span>
+<span class="keyword">for</span> i = 1:(length(position)/3)
+    lowerBound = 3*i - 2;
+    upperBound = lowerBound + 2;
+
+    velocityTransport(lowerBound:upperBound) = cross(omega, position(lowerBound:upperBound));
+<span class="keyword">end</span>
+
+<span class="comment">% Velocities relative to inertial reference frame, defined in A reference</span>
+<span class="comment">% frame</span>
+absoluteVelocity = localVelocity + velocityTransport;
+</pre><h2>Acceleration vectors<a name="4"></a></h2><pre class="codeinput">localAcceleration = diff(localVelocity, t);                      <span class="comment">% Accelerations relative to the spinning reference frames</span>
+accelerationTransport = sym(zeros(length(absoluteVelocity), 1)); <span class="comment">% Acceleration transport theorem</span>
+
+<span class="keyword">for</span> i = 1:(length(absoluteVelocity)/3)
+    lowerBound = 3*i - 2;
+    upperBound = lowerBound + 2;
+
+    accelerationTransport(lowerBound:upperBound) = cross(omega, absoluteVelocity(lowerBound:upperBound));
+<span class="keyword">end</span>
+
+<span class="comment">% Accelerations relative to inertial reference frame, defined in A reference</span>
+<span class="comment">% frame</span>
+absoluteAcceleration = localAcceleration + accelerationTransport;
+</pre><h2>Rod 1<a name="5"></a></h2><pre class="codeinput">syms <span class="string">Ax</span> <span class="string">Ay</span> <span class="string">Bx</span> <span class="string">By</span> <span class="string">k</span> <span class="string">lNaughtV</span> <span class="string">lNaughtH</span>
+
+<span class="comment">% Rod 1 constants</span>
+positionARelCMRod1 = [-L/2; 0; 0];              <span class="comment">% B reference frame</span>
+positionBRelCMRod1 = [L/2; 0; 0];               <span class="comment">% B reference frame</span>
+netForceARod1 = [Ax; k*(2*L*cos(theta(t)/2)-lNaughtV) - Ay; 0];  <span class="comment">% A reference frame</span>
+netForceBRod1 = [k*(2*L*sin(theta(t)/2)-lNaughtH) + Bx; -By; 0]; <span class="comment">% A reference frame</span>
+
+<span class="comment">% Euler's 1st law on rod's CM</span>
+netForceRod1 = netForceARod1 + netForceBRod1 + gravity;        <span class="comment">% A reference frame</span>
+euler1stLawRod1 = netForceRod1 == m*absoluteAcceleration(1:3); <span class="comment">% DE's of motion</span>
+
+<span class="comment">% Euler's 2nd law on rod's CM</span>
+netMomentRod1 = cross(BFrameToAFrame*positionARelCMRod1, netForceARod1) + cross(BFrameToAFrame*positionBRelCMRod1, netForceBRod1); <span class="comment">% A reference frame</span>
+angularMomentumRod1 = omegaBG.*cylindricalBarMOI;                                                                                  <span class="comment">% B reference frame</span>
+angularMomentumRod1Prime = diff(angularMomentumRod1, t) + BFrameToAFrame*cross(omegaBG, angularMomentumRod1);                      <span class="comment">% A reference frame</span>
+euler2ndLawRod1 = netMomentRod1 == angularMomentumRod1Prime;
+</pre><h2>Rod 2<a name="6"></a></h2><pre class="codeinput">syms <span class="string">Ax</span> <span class="string">Ay</span> <span class="string">Dx</span> <span class="string">Dy</span> <span class="string">k</span> <span class="string">lNaughtV</span> <span class="string">lNaughtH</span>
+
+<span class="comment">% Rod 2 constants</span>
+positionARelCMRod2 = [-L/2; 0; 0];              <span class="comment">% C reference frame</span>
+positionDRelCMRod2 = [L/2; 0; 0];               <span class="comment">% C reference frame</span>
+netForceARod2 = [-Ax; k*(2*L*cos(theta(t)/2)-lNaughtV) + Ay; 0]; <span class="comment">% A reference frame</span>
+netForceDRod2 = [-k*(2*L*sin(theta(t)/2)-lNaughtH) + Dx; Dy; 0]; <span class="comment">% A reference frame</span>
+
+<span class="comment">% Euler's 1st law on rod's CM</span>
+netForceRod2 = netForceARod2 + netForceDRod2 + gravity;        <span class="comment">% A reference frame</span>
+euler1stLawRod2 = netForceRod2 == m*absoluteAcceleration(4:6); <span class="comment">% DE's of motion</span>
+
+<span class="comment">% Euler's 2nd law on rod's CM</span>
+netMomentRod2 = cross(CFrameToAFrame*positionARelCMRod2, netForceARod2) + cross(CFrameToAFrame*positionDRelCMRod2, netForceDRod2); <span class="comment">% A reference frame</span>
+angularMomentumRod2 = omegaCG.*cylindricalBarMOI;                                                                                  <span class="comment">% C reference frame</span>
+angularMomentumRod2Prime = diff(angularMomentumRod2, t) + CFrameToAFrame*cross(omegaCG, angularMomentumRod2);                      <span class="comment">% A reference frame</span>
+euler2ndLawRod2 = netMomentRod2 == angularMomentumRod2Prime;
+</pre><h2>Rod 3<a name="7"></a></h2><pre class="codeinput">syms <span class="string">Bx</span> <span class="string">By</span> <span class="string">Cx</span> <span class="string">Cy</span> <span class="string">k</span> <span class="string">lNaughtV</span> <span class="string">lNaughtH</span>
+
+<span class="comment">% Rod 3 constants</span>
+positionBRelCMRod3 = [-L/2; 0; 0];             <span class="comment">% C reference frame</span>
+positionCRelCMRod3 = [L/2; 0; 0];              <span class="comment">% C reference frame</span>
+netForceBRod3 = [k*(2*L*sin(theta(t)/2)-lNaughtH) - Bx; By; 0]; <span class="comment">% A reference frame</span>
+netForceCRod3 = [Cx; Cy - k*(2*L*cos(theta(t)/2)-lNaughtV); 0]; <span class="comment">% A reference frame</span>
+
+<span class="comment">% Euler's 1st law on rod's CM</span>
+netForceRod3 = netForceBRod3 + netForceCRod3 + gravity;        <span class="comment">% A reference frame</span>
+euler1stLawRod3 = netForceRod3 == m*absoluteAcceleration(7:9); <span class="comment">% DE's of motion</span>
+
+<span class="comment">% Euler's 2nd law on rod's CM</span>
+netMomentRod3 = cross(CFrameToAFrame*positionBRelCMRod3, netForceBRod3) + cross(CFrameToAFrame*positionCRelCMRod3, netForceCRod3); <span class="comment">% A reference frame</span>
+angularMomentumRod3 = omegaCG.*cylindricalBarMOI;                                                                                  <span class="comment">% C reference frame</span>
+angularMomentumRod3Prime = diff(angularMomentumRod3, t) + CFrameToAFrame*cross(omegaCG, angularMomentumRod3);                      <span class="comment">% A reference frame</span>
+euler2ndLawRod3 = netMomentRod3 == angularMomentumRod3Prime;
+</pre><h2>Rod 4<a name="8"></a></h2><pre class="codeinput">syms <span class="string">Cx</span> <span class="string">Cy</span> <span class="string">Dx</span> <span class="string">Dy</span> <span class="string">k</span> <span class="string">lNaughtV</span> <span class="string">lNaughtH</span>
+
+<span class="comment">% Rod 4 constants</span>
+positionDRelCMRod4 = [-L/2; 0; 0];                                   <span class="comment">% B reference frame</span>
+positionCRelCMRod4 = [L/2; 0; 0];                                    <span class="comment">% B reference frame</span>
+netForceDRod4 = [-k*(2*L*sin(theta(t)/2)-lNaughtH) - Dx; -Dy; 0];    <span class="comment">% A reference frame</span>
+netForceCRod4 = [-Cx; -Cy - k*(2*L*cos(theta(t)/2)-lNaughtV); 0];    <span class="comment">% A reference frame</span>
+
+<span class="comment">% Euler's 1st law on rod's CM</span>
+netForceRod4 = netForceCRod4 + netForceDRod4 + gravity;          <span class="comment">% A reference frame</span>
+euler1stLawRod4 = netForceRod4 == m*absoluteAcceleration(10:12); <span class="comment">% DE's of motion</span>
+
+<span class="comment">% Euler's 2nd law on rod's CM</span>
+netMomentRod4 = cross(BFrameToAFrame*positionCRelCMRod4, netForceCRod4) + cross(BFrameToAFrame*positionDRelCMRod4, netForceDRod4); <span class="comment">% A reference frame</span>
+angularMomentumRod4 = omegaBG.*cylindricalBarMOI;                                                                                  <span class="comment">% B reference frame</span>
+angularMomentumRod4Prime = diff(angularMomentumRod4, t) + BFrameToAFrame*cross(omegaBG, angularMomentumRod4);                      <span class="comment">% A reference frame</span>
+euler2ndLawRod4 = netMomentRod4 == angularMomentumRod4Prime;
+</pre><h2>System of Differential Equations for the Entire System<a name="9"></a></h2><pre class="codeinput">syms <span class="string">Ax</span> <span class="string">Ay</span> <span class="string">Bx</span> <span class="string">By</span> <span class="string">Cx</span> <span class="string">Cy</span> <span class="string">Dx</span> <span class="string">Dy</span> <span class="string">lNaughtV</span> <span class="string">lNaughtH</span> <span class="string">theta(t)</span> <span class="string">t</span> <span class="string">theta</span> <span class="string">thetaPrime</span> <span class="string">thetaDoublePrime</span>
+<span class="comment">% The system of differential equations for Euler's 1st law in the a1 and a2 directions</span>
+euler1stLawDEs = [euler1stLawRod1(1:2);
+                  euler1stLawRod2(1:2);
+                  euler1stLawRod3(1:2);
+                  euler1stLawRod4(1:2)]
+
+<span class="comment">% The system of differential equations for Euler's 2nd law in the a3 directions</span>
+euler2ndLawDEs = [euler2ndLawRod1(3);
+                  euler2ndLawRod2(3);
+                  euler2ndLawRod3(3);
+                  euler2ndLawRod4(3)]
+
+<span class="comment">% theta = theta(t);</span>
+<span class="comment">% thetaPrime = diff(theta, t);</span>
+<span class="comment">% thetaDoublePrime = diff(thetaPrime, t)</span>
+
+[A,b] = equationsToMatrix( [euler1stLawRod1(1), euler1stLawRod1(2),<span class="keyword">...</span>
+                        euler1stLawRod2(1), euler1stLawRod2(2),<span class="keyword">...</span>
+                        euler1stLawRod3(1), euler1stLawRod3(2),<span class="keyword">...</span>
+                        euler1stLawRod4(1), euler1stLawRod4(2),<span class="keyword">...</span>
+                        euler2ndLawRod1(3), euler2ndLawRod2(3),<span class="keyword">...</span>
+                        euler2ndLawRod3(3), euler2ndLawRod3(3)],<span class="keyword">...</span>
+                        [Ax, Ay, Bx, By, Cx, Cy, Dx, Dy, lNaughtV, lNaughtH, thetaDoublePrime] )
+
+A\b
+</pre><pre class="codeoutput"> 
+euler1stLawDEs =
+ 
+  Ax + Bx - k*(lNaughtH - 2*L*sin(theta(t)/2)) == m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                              - Ay - By - g*m - k*(lNaughtV - 2*L*cos(theta(t)/2)) == -m*((L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (L*sin(theta(t)/2)*diff(theta(t), t, t))/4)
+ Dx - Ax + k*(lNaughtH - 2*L*sin(theta(t)/2)) == -m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                                Ay + Dy - g*m - k*(lNaughtV - 2*L*cos(theta(t)/2)) == -m*((L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (L*sin(theta(t)/2)*diff(theta(t), t, t))/4)
+  Cx - Bx - k*(lNaughtH - 2*L*sin(theta(t)/2)) == m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                            By + Cy - g*m + k*(lNaughtV - 2*L*cos(theta(t)/2)) == -m*((3*L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (3*L*sin(theta(t)/2)*diff(theta(t), t, t))/4)
+ k*(lNaughtH - 2*L*sin(theta(t)/2)) - Dx - Cx == -m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                            k*(lNaughtV - 2*L*cos(theta(t)/2)) - Dy - g*m - Cy == -m*((3*L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (3*L*sin(theta(t)/2)*diff(theta(t), t, t))/4)
+ 
+ 
+euler2ndLawDEs =
+ 
+ (Ax*L*cos(theta(t)/2))/2 + (By*L*sin(theta(t)/2))/2 - (L*sin(theta(t)/2)*(Ay + k*(lNaughtV - 2*L*cos(theta(t)/2))))/2 - (L*cos(theta(t)/2)*(Bx - k*(lNaughtH - 2*L*sin(theta(t)/2))))/2 == (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (Dy*L*sin(theta(t)/2))/2 - (Ax*L*cos(theta(t)/2))/2 - (L*sin(theta(t)/2)*(Ay - k*(lNaughtV - 2*L*cos(theta(t)/2))))/2 - (L*cos(theta(t)/2)*(Dx + k*(lNaughtH - 2*L*sin(theta(t)/2))))/2 == (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 + (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (L*sin(theta(t)/2)*(Cy + k*(lNaughtV - 2*L*cos(theta(t)/2))))/2 - (By*L*sin(theta(t)/2))/2 - (L*cos(theta(t)/2)*(Bx + k*(lNaughtH - 2*L*sin(theta(t)/2))))/2 - (Cx*L*cos(theta(t)/2))/2 == (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 + (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (Cx*L*cos(theta(t)/2))/2 - (Dy*L*sin(theta(t)/2))/2 + (L*sin(theta(t)/2)*(Cy - k*(lNaughtV - 2*L*cos(theta(t)/2))))/2 - (L*cos(theta(t)/2)*(Dx - k*(lNaughtH - 2*L*sin(theta(t)/2))))/2 == (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ 
+ 
+A =
+ 
+[                      1,                      0,                      1,                      0,                      0,                     0,                      0,                     0,                        0,                       -k, 0]
+[                      0,                     -1,                      0,                     -1,                      0,                     0,                      0,                     0,                       -k,                        0, 0]
+[                     -1,                      0,                      0,                      0,                      0,                     0,                      1,                     0,                        0,                        k, 0]
+[                      0,                      1,                      0,                      0,                      0,                     0,                      0,                     1,                       -k,                        0, 0]
+[                      0,                      0,                     -1,                      0,                      1,                     0,                      0,                     0,                        0,                       -k, 0]
+[                      0,                      0,                      0,                      1,                      0,                     1,                      0,                     0,                        k,                        0, 0]
+[                      0,                      0,                      0,                      0,                     -1,                     0,                     -1,                     0,                        0,                        k, 0]
+[                      0,                      0,                      0,                      0,                      0,                    -1,                      0,                    -1,                        k,                        0, 0]
+[  (L*cos(theta(t)/2))/2, -(L*sin(theta(t)/2))/2, -(L*cos(theta(t)/2))/2,  (L*sin(theta(t)/2))/2,                      0,                     0,                      0,                     0, -(L*k*sin(theta(t)/2))/2,  (L*k*cos(theta(t)/2))/2, 0]
+[ -(L*cos(theta(t)/2))/2, -(L*sin(theta(t)/2))/2,                      0,                      0,                      0,                     0, -(L*cos(theta(t)/2))/2, (L*sin(theta(t)/2))/2,  (L*k*sin(theta(t)/2))/2, -(L*k*cos(theta(t)/2))/2, 0]
+[                      0,                      0, -(L*cos(theta(t)/2))/2, -(L*sin(theta(t)/2))/2, -(L*cos(theta(t)/2))/2, (L*sin(theta(t)/2))/2,                      0,                     0,  (L*k*sin(theta(t)/2))/2, -(L*k*cos(theta(t)/2))/2, 0]
+[                      0,                      0, -(L*cos(theta(t)/2))/2, -(L*sin(theta(t)/2))/2, -(L*cos(theta(t)/2))/2, (L*sin(theta(t)/2))/2,                      0,                     0,  (L*k*sin(theta(t)/2))/2, -(L*k*cos(theta(t)/2))/2, 0]
+ 
+ 
+b =
+ 
+                m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2) - 2*L*k*sin(theta(t)/2)
+                                               g*m - m*((L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (L*sin(theta(t)/2)*diff(theta(t), t, t))/4) - 2*L*k*cos(theta(t)/2)
+                2*L*k*sin(theta(t)/2) - m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                                               g*m - m*((L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (L*sin(theta(t)/2)*diff(theta(t), t, t))/4) - 2*L*k*cos(theta(t)/2)
+                m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2) - 2*L*k*sin(theta(t)/2)
+                                           g*m - m*((3*L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (3*L*sin(theta(t)/2)*diff(theta(t), t, t))/4) + 2*L*k*cos(theta(t)/2)
+                2*L*k*sin(theta(t)/2) - m*((L*sin(theta(t)/2)*diff(theta(t), t)^2)/8 - (L*cos(theta(t)/2)*diff(theta(t), t, t))/4 + (L*sin(theta(t)/2)*omegaAG(t)^2)/2)
+                                           g*m - m*((3*L*cos(theta(t)/2)*diff(theta(t), t)^2)/8 + (3*L*sin(theta(t)/2)*diff(theta(t), t, t))/4) + 2*L*k*cos(theta(t)/2)
+ (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 + (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 + (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ (m*(L^2 + 3*r^2)*diff(theta(t), t, t))/24 + (m*r^2*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2)/2 - (m*cos(theta(t)/2)*sin(theta(t)/2)*omegaAG(t)^2*(L^2 + 3*r^2))/12
+ 
+Warning: The system is inconsistent. Solution does not
+exist. 
+ 
+ans =
+ 
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ Inf
+ 
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clc; clear; close;
+
+%% Known quantities
+syms L m g r theta(t) omegaAG(t) transport
+
+% Constants and reference frames
+gravity = [0; -m*g; 0];                    % A or G reference frame
+omega = [0; -omegaAG(t); 0];               % A or G reference frame
+
+% Angular momentum of frame B relative to frame G
+omegaBG = [-omegaAG(t)*cos(theta(t)/2);...
+           omegaAG(t)*sin(theta(t)/2);...
+           -(1/2)*diff(theta(t),t)];       % B reference frame
+       
+% Angular momentum of frame C relative to frame G
+omegaCG = [-omegaAG(t)*cos(theta(t)/2);...
+           omegaAG(t)*sin(theta(t)/2);...
+           (1/2)*diff(theta(t),t)];        % C reference frame
+
+% [a1; a2; a3] = (...)(b1; b2; b3]
+BFrameToAFrame = [-sin(theta(t)/2), -cos(theta(t)/2), 0;...
+                    cos(theta(t)/2), -sin(theta(t)/2), 0;...
+                    0, 0, 1];
+                
+% [a1; a2; a3] = (...)(c1; c2; c3]
+CFrameToAFrame = [sin(theta(t)/2), cos(theta(t)/2), 0;...
+                  cos(theta(t)/2), -sin(theta(t)/2), 0;...
+                  0, 0, 1];
+
+% Moment of inertia for a cylindrical bar relative to its principal-axis
+% coordinate system
+cylindricalBarMOI = [(m/2)*r^2;...
+                     (m/12)*(3*r^2 + L^2);...
+                     (m/12)*(3*r^2 + L^2)];
+
+% Position vectors
+r1 = (L/2)*[-sin(theta(t)/2); cos(theta(t)/2); 0]; % A reference frame
+r2 = (L/2)*[ sin(theta(t)/2); cos(theta(t)/2); 0]; % A reference frame
+r3 = 2*r1 + (L/2)*[ sin(theta(t)/2); cos(theta(t)/2); 0]; % A reference frame
+r4 = 2*r2 + (L/2)*[-sin(theta(t)/2); cos(theta(t)/2); 0]; % A reference frame
+position = [r1; r2; r3; r4];
+
+%% Velocity vectors
+
+localVelocity = diff(position, t);                  % Velocity relative to the spinning reference frame
+velocityTransport = sym(zeros(length(position), 1)); % Velocity transport theorem
+
+% Iterate from 1 to 4, but there is 12 position rows.
+% We need to map the natural #s to the set S =
+% {(1,2,3),(4,5,6),...(a,b,c)}
+% Recursive formula: (a,b,c) = (n + 2*(n-1), a+1, a+2), for natural number
+% n
+for i = 1:(length(position)/3)
+    lowerBound = 3*i - 2;
+    upperBound = lowerBound + 2;
+    
+    velocityTransport(lowerBound:upperBound) = cross(omega, position(lowerBound:upperBound));
+end
+
+% Velocities relative to inertial reference frame, defined in A reference
+% frame
+absoluteVelocity = localVelocity + velocityTransport;
+
+%% Acceleration vectors
+localAcceleration = diff(localVelocity, t);                      % Accelerations relative to the spinning reference frames
+accelerationTransport = sym(zeros(length(absoluteVelocity), 1)); % Acceleration transport theorem
+
+for i = 1:(length(absoluteVelocity)/3)
+    lowerBound = 3*i - 2;
+    upperBound = lowerBound + 2;
+    
+    accelerationTransport(lowerBound:upperBound) = cross(omega, absoluteVelocity(lowerBound:upperBound));
+end
+
+% Accelerations relative to inertial reference frame, defined in A reference
+% frame
+absoluteAcceleration = localAcceleration + accelerationTransport;
+
+%% Rod 1
+
+syms Ax Ay Bx By k lNaughtV lNaughtH
+
+% Rod 1 constants
+positionARelCMRod1 = [-L/2; 0; 0];              % B reference frame
+positionBRelCMRod1 = [L/2; 0; 0];               % B reference frame
+netForceARod1 = [Ax; k*(2*L*cos(theta(t)/2)-lNaughtV) - Ay; 0];  % A reference frame
+netForceBRod1 = [k*(2*L*sin(theta(t)/2)-lNaughtH) + Bx; -By; 0]; % A reference frame
+
+% Euler's 1st law on rod's CM 
+netForceRod1 = netForceARod1 + netForceBRod1 + gravity;        % A reference frame
+euler1stLawRod1 = netForceRod1 == m*absoluteAcceleration(1:3); % DE's of motion
+
+% Euler's 2nd law on rod's CM 
+netMomentRod1 = cross(BFrameToAFrame*positionARelCMRod1, netForceARod1) + cross(BFrameToAFrame*positionBRelCMRod1, netForceBRod1); % A reference frame
+angularMomentumRod1 = omegaBG.*cylindricalBarMOI;                                                                                  % B reference frame
+angularMomentumRod1Prime = diff(angularMomentumRod1, t) + BFrameToAFrame*cross(omegaBG, angularMomentumRod1);                      % A reference frame
+euler2ndLawRod1 = netMomentRod1 == angularMomentumRod1Prime;
+
+%% Rod 2
+
+syms Ax Ay Dx Dy k lNaughtV lNaughtH
+
+% Rod 2 constants
+positionARelCMRod2 = [-L/2; 0; 0];              % C reference frame
+positionDRelCMRod2 = [L/2; 0; 0];               % C reference frame
+netForceARod2 = [-Ax; k*(2*L*cos(theta(t)/2)-lNaughtV) + Ay; 0]; % A reference frame
+netForceDRod2 = [-k*(2*L*sin(theta(t)/2)-lNaughtH) + Dx; Dy; 0]; % A reference frame
+
+% Euler's 1st law on rod's CM 
+netForceRod2 = netForceARod2 + netForceDRod2 + gravity;        % A reference frame
+euler1stLawRod2 = netForceRod2 == m*absoluteAcceleration(4:6); % DE's of motion
+
+% Euler's 2nd law on rod's CM
+netMomentRod2 = cross(CFrameToAFrame*positionARelCMRod2, netForceARod2) + cross(CFrameToAFrame*positionDRelCMRod2, netForceDRod2); % A reference frame
+angularMomentumRod2 = omegaCG.*cylindricalBarMOI;                                                                                  % C reference frame
+angularMomentumRod2Prime = diff(angularMomentumRod2, t) + CFrameToAFrame*cross(omegaCG, angularMomentumRod2);                      % A reference frame
+euler2ndLawRod2 = netMomentRod2 == angularMomentumRod2Prime;
+
+%% Rod 3
+
+syms Bx By Cx Cy k lNaughtV lNaughtH
+
+% Rod 3 constants
+positionBRelCMRod3 = [-L/2; 0; 0];             % C reference frame
+positionCRelCMRod3 = [L/2; 0; 0];              % C reference frame
+netForceBRod3 = [k*(2*L*sin(theta(t)/2)-lNaughtH) - Bx; By; 0]; % A reference frame
+netForceCRod3 = [Cx; Cy - k*(2*L*cos(theta(t)/2)-lNaughtV); 0]; % A reference frame
+
+% Euler's 1st law on rod's CM 
+netForceRod3 = netForceBRod3 + netForceCRod3 + gravity;        % A reference frame
+euler1stLawRod3 = netForceRod3 == m*absoluteAcceleration(7:9); % DE's of motion
+
+% Euler's 2nd law on rod's CM
+netMomentRod3 = cross(CFrameToAFrame*positionBRelCMRod3, netForceBRod3) + cross(CFrameToAFrame*positionCRelCMRod3, netForceCRod3); % A reference frame
+angularMomentumRod3 = omegaCG.*cylindricalBarMOI;                                                                                  % C reference frame
+angularMomentumRod3Prime = diff(angularMomentumRod3, t) + CFrameToAFrame*cross(omegaCG, angularMomentumRod3);                      % A reference frame
+euler2ndLawRod3 = netMomentRod3 == angularMomentumRod3Prime;
+
+%% Rod 4
+
+syms Cx Cy Dx Dy k lNaughtV lNaughtH
+
+% Rod 4 constants
+positionDRelCMRod4 = [-L/2; 0; 0];                                   % B reference frame
+positionCRelCMRod4 = [L/2; 0; 0];                                    % B reference frame
+netForceDRod4 = [-k*(2*L*sin(theta(t)/2)-lNaughtH) - Dx; -Dy; 0];    % A reference frame
+netForceCRod4 = [-Cx; -Cy - k*(2*L*cos(theta(t)/2)-lNaughtV); 0];    % A reference frame
+
+% Euler's 1st law on rod's CM 
+netForceRod4 = netForceCRod4 + netForceDRod4 + gravity;          % A reference frame
+euler1stLawRod4 = netForceRod4 == m*absoluteAcceleration(10:12); % DE's of motion
+
+% Euler's 2nd law on rod's CM
+netMomentRod4 = cross(BFrameToAFrame*positionCRelCMRod4, netForceCRod4) + cross(BFrameToAFrame*positionDRelCMRod4, netForceDRod4); % A reference frame
+angularMomentumRod4 = omegaBG.*cylindricalBarMOI;                                                                                  % B reference frame
+angularMomentumRod4Prime = diff(angularMomentumRod4, t) + BFrameToAFrame*cross(omegaBG, angularMomentumRod4);                      % A reference frame
+euler2ndLawRod4 = netMomentRod4 == angularMomentumRod4Prime;
+
+%% System of Differential Equations for the Entire System
+
+syms Ax Ay Bx By Cx Cy Dx Dy lNaughtV lNaughtH theta(t) t theta thetaPrime thetaDoublePrime
+% The system of differential equations for Euler's 1st law in the a1 and a2 directions
+euler1stLawDEs = [euler1stLawRod1(1:2);
+                  euler1stLawRod2(1:2);
+                  euler1stLawRod3(1:2);
+                  euler1stLawRod4(1:2)]
+              
+% The system of differential equations for Euler's 2nd law in the a3 directions
+euler2ndLawDEs = [euler2ndLawRod1(3);
+                  euler2ndLawRod2(3);
+                  euler2ndLawRod3(3);
+                  euler2ndLawRod4(3)]
+              
+% theta = theta(t);
+% thetaPrime = diff(theta, t);              
+% thetaDoublePrime = diff(thetaPrime, t)
+
+[A,b] = equationsToMatrix( [euler1stLawRod1(1), euler1stLawRod1(2),...
+                        euler1stLawRod2(1), euler1stLawRod2(2),...
+                        euler1stLawRod3(1), euler1stLawRod3(2),...
+                        euler1stLawRod4(1), euler1stLawRod4(2),...
+                        euler2ndLawRod1(3), euler2ndLawRod2(3),...
+                        euler2ndLawRod3(3), euler2ndLawRod3(3)],...
+                        [Ax, Ay, Bx, By, Cx, Cy, Dx, Dy, lNaughtV, lNaughtH, thetaDoublePrime] )
+                    
+A\b
+##### SOURCE END #####
+--></body></html>
